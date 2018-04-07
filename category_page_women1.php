@@ -66,13 +66,13 @@ and open the template in the editor.
 
         <!--Accessories-->
         <div class="w3-display-container">
-            <a href="subcategory_page_women2.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_women_images/bags.png" alt=""/></a>
+            <a href="subcategory_page_women3.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_women_images/bags.png" alt=""/></a>
             <div class="w3-display-middle w3-large"><p style="">ACCESSORIES</p></div>
         </div>
 
         <!--Bags-->
         <div class="w3-display-container">
-            <a href="subcategory_page_women3.php"><img id="banner1" style="filter: brightness(70%);"src="images/category_page_women_images/accessories.png" alt=""/></a>
+            <a href="subcategory_page_women2.php"><img id="banner1" style="filter: brightness(70%);"src="images/category_page_women_images/accessories.png" alt=""/></a>
             <div class="w3-display-middle w3-large"><p style="">BAGS</p></div>
         </div>
 
