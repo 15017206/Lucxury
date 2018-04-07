@@ -112,7 +112,7 @@ and open the template in the editor.
 
             <a href="home_page.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">HOME</a>
             <a href="profile.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">PROFILE</a>
-            <a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">PROMOTION</a>
+            <!--<a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">PROMOTION</a>-->
             <a href="news.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">NEWS</a>
             <a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">HOW TO USE</a>
             <!--<a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">SETTINGS</a>-->
