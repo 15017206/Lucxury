@@ -5,7 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php include 'templateBar.php'; ?>
-<?php include 'templateBar_bottom.php'; ?>
+
 <html lang="en">
 
     <!--head-->
@@ -149,6 +149,6 @@ and open the template in the editor.
                 <div class="w3-display-middle w3-xlarge" style="color: white"><b>WOMEN</b></div>
             </div>
         </div>
-
+        <?php include 'templateBar_bottom.php'; ?>
     </body>
 </html>
