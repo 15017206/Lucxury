@@ -106,6 +106,6 @@ and open the template in the editor.
                 <button class="w3-btn"><img id="cell1" src="images/subcategory_page_men3_images/Briefcase.jpg" alt=""/></button>
             </form>
         </div>
-
+    <?php include 'templateBar_bottom.php'; ?>
     </body>
 </html>
