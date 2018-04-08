@@ -100,5 +100,6 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
+            <?php include 'templateBar_bottom.php'; ?>
     </body>
 </html>
