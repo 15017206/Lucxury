@@ -81,5 +81,7 @@ and open the template in the editor.
             <a href="subcategory_page_women4.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_women_images/shoes.png" alt=""/></a>
             <div class="w3-display-middle w3-large"><p style="">SHOES</p></div>
         </div>
+        </br>
+    <?php include 'templateBar_bottom.php'; ?>
     </body>
 </html>
