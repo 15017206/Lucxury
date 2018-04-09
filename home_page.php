@@ -7,7 +7,6 @@ and open the template in the editor.
 <?php include 'templateBar.php'; ?>
 
 <html lang="en">
-
     <!--head-->
     <head>
         <meta charset="UTF-8">
@@ -150,5 +149,6 @@ and open the template in the editor.
             </div>
         </div>
         <?php include 'templateBar_bottom.php'; ?>
+        <?php include 'templateBar_bottombottom.php'; ?>
     </body>
 </html>

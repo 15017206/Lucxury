@@ -109,6 +109,7 @@ and open the template in the editor.
                 <button class="w3-btn"><img id="cell1" src="images/subcategory_page_women2_images/Messanger Bag.jpg" alt=""/></button>
             </form>
         </div>
-
+    <?php include 'templateBar_bottom.php'; ?>
+    <?php include 'templateBar_bottombottom.php'; ?>
     </body>
 </html>
