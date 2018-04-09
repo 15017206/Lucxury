@@ -60,26 +60,26 @@ and open the template in the editor.
 
         <!--Apparels-->
         <div class="w3-display-container">
-            <a href="subcategory_page_women1.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_women_images/apparels.png" alt=""/></a>
-            <div class="w3-display-middle w3-large"><p style="">APPARELS</p></div>
+            <a href="subcategory_page_women1.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_women_images/apparels.jpg" alt=""/></a>
+            <div class="w3-display-middle w3-large"><p style=""></p></div>
         </div>
 
         <!--Accessories-->
         <div class="w3-display-container">
-            <a href="subcategory_page_women3.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_women_images/bags.png" alt=""/></a>
-            <div class="w3-display-middle w3-large"><p style="">ACCESSORIES</p></div>
+            <a href="subcategory_page_women3.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_women_images/bags.jpg" alt=""/></a>
+            <div class="w3-display-middle w3-large"><p style=""></p></div>
         </div>
 
         <!--Bags-->
         <div class="w3-display-container">
-            <a href="subcategory_page_women2.php"><img id="banner1" style="filter: brightness(70%);"src="images/category_page_women_images/accessories.png" alt=""/></a>
-            <div class="w3-display-middle w3-large"><p style="">BAGS</p></div>
+            <a href="subcategory_page_women2.php"><img id="banner1" style="filter: brightness(70%);"src="images/category_page_women_images/accessories.jpg" alt=""/></a>
+            <div class="w3-display-middle w3-large"><p style=""></p></div>
         </div>
 
         <!--Shoes-->
         <div class="w3-display-container">
-            <a href="subcategory_page_women4.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_women_images/shoes.png" alt=""/></a>
-            <div class="w3-display-middle w3-large"><p style="">SHOES</p></div>
+            <a href="subcategory_page_women4.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_women_images/shoes.jpg" alt=""/></a>
+            <div class="w3-display-middle w3-large"><p style="">S</p></div>
         </div>
         </br>
     <?php include 'templateBar_bottom.php'; ?>
