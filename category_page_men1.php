@@ -83,5 +83,6 @@ and open the template in the editor.
             </div>
             </br>
         <?php include 'templateBar_bottom.php'; ?>
+        <?php include 'templateBar_bottombottom.php'; ?>
         </body>
     </html>
