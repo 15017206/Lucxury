@@ -60,25 +60,25 @@ and open the template in the editor.
 
             <!--Apparels-->
             <div class="w3-display-container">
-                <a href="subcategory_page_men1.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_men_images/apparels.jpeg" alt=""/></a>
+                <a href="subcategory_page_men1.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_men_images/apparels.jpg" alt=""/></a>
                 <div class="w3-display-middle w3-large"><p style="">APPARELS</p></div>
             </div>
 
             <!--Accessories-->
             <div class="w3-display-container">
-                <a href="subcategory_page_men2.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_men_images/accessories.jpeg" alt=""/></a>
+                <a href="subcategory_page_men2.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_men_images/accessories.jpg" alt=""/></a>
                 <div class="w3-display-middle w3-large"><p style="">ACCESSORIES</p></div>
             </div>
 
             <!--Bags-->
             <div class="w3-display-container">
-                <a href="subcategory_page_men3.php"><img id="banner1" style="filter: brightness(70%);"src="images/category_page_men_images/bags.jpeg" alt=""/></a>
+                <a href="subcategory_page_men3.php"><img id="banner1" style="filter: brightness(70%);"src="images/category_page_men_images/bags.jpg" alt=""/></a>
                 <div class="w3-display-middle w3-large"><p style="">BAGS</p></div>
             </div>
 
             <!--Shoes-->
             <div class="w3-display-container">
-                <a href="subcategory_page_men4.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_men_images/shoes.jpeg" alt=""/></a>
+                <a href="subcategory_page_men4.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_men_images/shoes.jpg" alt=""/></a>
                 <div class="w3-display-middle w3-large"><p style="">SHOES</p></div>
             </div>
             </br>
