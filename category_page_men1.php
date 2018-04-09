@@ -60,26 +60,34 @@ and open the template in the editor.
 
             <!--Apparels-->
             <div class="w3-display-container">
-                <a href="subcategory_page_men1.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_men_images/apparels.jpg" alt=""/></a>
-                <div class="w3-display-middle w3-large"><p style="">APPARELS</p></div>
+            <form action="subcategory_page_men1.php" method="post">
+                <input type="hidden" name="search_item" value="shirts">
+                <button class="w3-btn"><img id="cell1" src="images/category_page_men_images/apparels.jpg" alt=""/></button>
+            </form>
             </div>
 
             <!--Accessories-->
             <div class="w3-display-container">
-                <a href="subcategory_page_men2.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_men_images/accessories.jpg" alt=""/></a>
-                <div class="w3-display-middle w3-large"><p style="">ACCESSORIES</p></div>
+            <form action="subcategory_page_men2.php" method="post">
+                <input type="hidden" name="search_item" value="accessories">
+                <button class="w3-btn"><img id="cell1" src="images/category_page_men_images/accessories.jpg.jpg" alt=""/></button>
+            </form>
             </div>
 
             <!--Bags-->
             <div class="w3-display-container">
-                <a href="subcategory_page_men3.php"><img id="banner1" style="filter: brightness(70%);"src="images/category_page_men_images/bags.jpg" alt=""/></a>
-                <div class="w3-display-middle w3-large"><p style="">BAGS</p></div>
+            <form action="subcategory_page_men3.php" method="post">
+                <input type="hidden" name="search_item" value="bags">
+                <button class="w3-btn"><img id="cell1" src="images/category_page_men_images/bag.jpg" alt=""/></button>
+            </form>
             </div>
 
             <!--Shoes-->
             <div class="w3-display-container">
-                <a href="subcategory_page_men4.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_men_images/shoes.jpg" alt=""/></a>
-                <div class="w3-display-middle w3-large"><p style="">SHOES</p></div>
+            <form action="subcategory_page_men4.php" method="post">
+                <input type="hidden" name="search_item" value="shoes">
+                <button class="w3-btn"><img id="cell1" src="images/category_page_men_images/shoes.jpg" alt=""/></button>
+            </form>
             </div>
             </br>
         <?php include 'templateBar_bottom.php'; ?>
