@@ -1,16 +1,14 @@
 <?php
+
 include 'dbconn.php';
-$query = "SELECT * FROM `item` INNER JOIN `image` ON image.item_id = item.item_id";
+$query = "SELECT * FROM `item`";
 
-    $result = mysqli_query($link, $query);
-    
-    
-    while ($row = mysqli_fetch_assoc($result)) {
-        $students[] = $row;
-    }
-     
-    
+$result = mysqli_query($link, $query);
 
-    mysqli_close($link);
 
-    echo json_encode($student);
+while ($row = mysqli_fetch_assoc($result)) {
+    $users[] = $row;
+}
+mysqli_close($link);
+
+echo json_encode($users);
