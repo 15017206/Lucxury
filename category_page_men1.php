@@ -51,6 +51,13 @@ and open the template in the editor.
                 max-width: 100%;
 
             }
+            
+             #cell1 {
+                max-width: 100%;
+                min-width: 100%;
+                min-height: 100%;
+                max-height: 100%;
+             }
             </style>
 
             <title></title>
@@ -78,7 +85,7 @@ and open the template in the editor.
             <div class="w3-display-container">
             <form action="subcategory_page_men3.php" method="post">
                 <input type="hidden" name="search_item" value="bags">
-                <button class="w3-btn"><img id="cell1" src="images/category_page_men_images/bag.jpg" alt=""/></button>
+                <button class="w3-btn"><img id="cell1" src="images/category_page_men_images/bags.jpg" alt=""/></button>
             </form>
             </div>
 
