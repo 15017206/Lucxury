@@ -139,13 +139,13 @@ and open the template in the editor.
         <!--men & women carousel-->
         <div class="w3">
             <div class=" w3-half w3-btn w3-display-container">
-                <a href="category_page_men1.php"><img id="banner1" src="images/home_page_images/thirdlevel_picture_men_resized.png" alt="" style=""/></a>
-                <div class="w3-display-middle w3-xlarge" style="color: white"><b>MEN</b></div>
+                <a href="category_page_men1.php"><img id="banner1" src="images/home_page_images/thirdlevel_picture_men_resized.jpg" alt="" style=""/></a>
+                <div class="w3-display-middle w3-xlarge" style="color: white"><b></b></div>
             </div>    
 
             <div class="w3-half w3-btn w3-display-container">
-                <a href="category_page_women1.php"><img id="banner1" src="images/home_page_images/thirdlevel_picture_women_resized.png" alt="" style=""/></a>
-                <div class="w3-display-middle w3-xlarge" style="color: white"><b>WOMEN</b></div>
+                <a href="category_page_women1.php"><img id="banner1" src="images/home_page_images/thirdlevel_picture_women_resized.jpg" alt="" style=""/></a>
+                <div class="w3-display-middle w3-xlarge" style="color: white"><b></b></div>
             </div>
         </div>
         <?php include 'templateBar_bottom.php'; ?>
