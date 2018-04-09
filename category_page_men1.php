@@ -70,7 +70,7 @@ and open the template in the editor.
             <div class="w3-display-container">
             <form action="subcategory_page_men2.php" method="post">
                 <input type="hidden" name="search_item" value="accessories">
-                <button class="w3-btn"><img id="cell1" src="images/category_page_men_images/accessories.jpg.jpg" alt=""/></button>
+                <button class="w3-btn"><img id="cell1" src="images/category_page_men_images/accessories.jpg" alt=""/></button>
             </form>
             </div>
 
