@@ -1,6 +1,7 @@
 <?php
 include 'dbconn.php';
 
+$link = mysqli_connect($host,$user,$pass,$db);
 $merchant_id = $_POST["merchant_id"];
 $name = $_POST["product_name"];
 $price_currency = $_POST["price_currency"];
@@ -11,8 +12,7 @@ $condition = $_POST["condition"];
 $category = $_POST["category"];
 $item_more_info_url = $_POST["item_more_info_url"];
 
-$query = "INSERT INTO `item` (`merchant_id`, `name`, `price_currency`, `price_amount`, `brand`, `color`, `condition`, `category`, `item_more_info_url`)"
-        . " VALUES ('$merchant_id', '$name', '$price_currency', '$price_amount', '$brand', '$color', '$condition', '$category', '$item_more_info_url')";
+$query = "INSERT INTO `item` (`merchant_id`, `name`, `price_currency`, `price_amount`, `brand`, `color`, `condition`, `category`, `item_more_info_url`) VALUES ('$merchant_id', '$name', '$price_currency', '$price_amount', '$brand', '$color', '$condition', '$category', '$item_more_info_url')";
 
 $result = mysqli_query($link, $query);
 
