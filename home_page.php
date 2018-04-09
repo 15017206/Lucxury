@@ -7,18 +7,6 @@ and open the template in the editor.
 <?php include 'templateBar.php'; ?>
 
 <html lang="en">
-<script type="text/javascript">
-    (function(p,u,s,h){
-        p._pcq=p._pcq||[];
-        p._pcq.push(['_currentTime',Date.now()]);
-        s=u.createElement('script');
-        s.type='text/javascript';
-        s.async=true;
-        s.src='https://cdn.pushcrew.com/js/781e1ac28c601ecc822425314b7041e7.js';
-        h=u.getElementsByTagName('script')[0];
-        h.parentNode.insertBefore(s,h);
-    })(window,document);
-</script>
     <!--head-->
     <head>
         <meta charset="UTF-8">
