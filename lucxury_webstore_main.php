@@ -69,10 +69,10 @@ and open the template in the editor.
                         <a href='' onclick="removeItem()"><span class='badge badge-danger'>Remove Item</span></a>
                         <br/><br/>
                         <h6>Image Links:</h6>
-                        <img class="thumbnails_in_item" src="https://demo.cloudimg.io/crop/200x200/s/sample.li/boat.jpg">
-                        <img class="thumbnails_in_item" src="https://demo.cloudimg.io/crop/200x200/s/sample.li/boat.jpg">
-                        <img class="thumbnails_in_item" src="https://demo.cloudimg.io/crop/200x200/s/sample.li/boat.jpg">
-                        <img class="thumbnails_in_item" src="https://demo.cloudimg.io/crop/200x200/s/sample.li/boat.jpg">
+                        <a href="https://demo.cloudimg.io/crop/200x200/s/sample.li/boat.jpg"target="_blank"><img class="thumbnails_in_item" src="https://demo.cloudimg.io/crop/200x200/s/sample.li/boat.jpg"></a>
+                        <a href="https://demo.cloudimg.io/crop/200x200/s/sample.li/boat.jpg"target="_blank"><img class="thumbnails_in_item" src="https://demo.cloudimg.io/crop/200x200/s/sample.li/boat.jpg"></a>
+                        <a href="https://demo.cloudimg.io/crop/200x200/s/sample.li/boat.jpg"target="_blank"><img class="thumbnails_in_item" src="https://demo.cloudimg.io/crop/200x200/s/sample.li/boat.jpg"></a>
+                        <a href="https://demo.cloudimg.io/crop/200x200/s/sample.li/boat.jpg"target="_blank"><img class="thumbnails_in_item" src="https://demo.cloudimg.io/crop/200x200/s/sample.li/boat.jpg"></a>
                     </li>
                 </ul>
             </div>
