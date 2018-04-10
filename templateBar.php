@@ -81,6 +81,10 @@ and open the template in the editor.
             #topbarlogo {
                 max-width: 100%;
             }
+            
+            #hidepls {
+                visibility: hidden;
+            }
         </style>
 
         <title></title>
@@ -100,7 +104,7 @@ and open the template in the editor.
                     <li id="notifications2"><a href="home_page.php"><img id="topbarlogo" src="images/lucxurylogo.PNG" alt="" style="max-width:100%; max-height: 50px;"/></a></li>
 
                 </ul>
-                <ul class="nav navbar-nav">
+                <ul id="hidepls" class="nav navbar-nav">
                     <li id="notifications3"><a href="notification_page.php" onclick="notifyMe()"><i class="material-icons">notifications</i></a><span class="badge badge-light">1</span></li>
                 </ul>
             </div>
