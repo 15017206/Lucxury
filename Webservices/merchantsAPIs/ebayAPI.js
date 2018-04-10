@@ -56,28 +56,28 @@ $.ajax({
             $.ajax({
                 type: "POST",
                 url: "http://localhost/Lucxury_000webhost/Webservices/doAddItem.php",
-                data: {merchant_id: 1, product_name: product_name, price_currency: price_currency, price_amount: price_amount, brand: product_name, color: product_name, condition: condition, category: category, item_more_info_url: link},
+                data: {merchant_id: 2, product_name: product_name, price_currency: price_currency, price_amount: price_amount, brand: product_name, color: product_name, condition: condition, category: category, item_more_info_url: link},
                 cache: false,
                 dataType: "JSON",
                 success: function (data, textStatus) {
                 },
                 error: function (obj, textStatus, errorThrown) {
                     console.log("Error " + textStatus + ": " + errorThrown);
-                    alert("");
+
                 }
             });
             //Insert to ItemTemp Table
             $.ajax({
                 type: "POST",
-                url: "http://localhost/Lucxury_000webhost/Webservices/doAddItem_itemtemp.php",
-                data: {merchant_id: 1, product_name: product_name, price_currency: price_currency, price_amount: price_amount, brand: product_name, color: product_name, condition: condition, category: category, item_more_info_url: link},
+                url: "http://localhost/Lucxury_000webhost/Webservices/doAddItem_itemfilter.php",
+                data: {merchant_id: 2, product_name: product_name, price_currency: price_currency, price_amount: price_amount, brand: product_name, color: product_name, condition: condition, category: category, item_more_info_url: link},
                 cache: false,
                 dataType: "JSON",
                 success: function (data, textStatus) {
                 },
                 error: function (obj, textStatus, errorThrown) {
                     console.log("Error " + textStatus + ": " + errorThrown);
-                    alert("");
+
                 }
             });
 

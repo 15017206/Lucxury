@@ -11,7 +11,7 @@ $condition = $_POST["condition"];
 $category = $_POST["category"];
 $item_more_info_url = $_POST["item_more_info_url"];
 
-$query = "INSERT INTO `item` (`merchant_id`, `name`, `price_currency`, `price_amount`, `brand`, `color`, `condition`, `category`, `item_more_info_url`) VALUES ('$merchant_id', '$name', '$price_currency', '$price_amount', '$brand', '$color', '$condition', '$category', '$item_more_info_url')";
+$query = "INSERT INTO `item` (`merchant_id`, `item_name`, `item_price_currency`, `item_price_amount`, `item_brand`, `item_color`, `item_condition`, `item_category`, `item_more_info_url`) VALUES ('$merchant_id', '$name', '$price_currency', '$price_amount', '$brand', '$color', '$condition', '$category', '$item_more_info_url')";
 
 $result = mysqli_query($link, $query);
 
