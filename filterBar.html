@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!--Filter Bar-->
+<div class="w3-mobile w3-bar w3-black">
+
+    <!--Price-->
+    <div class="w3-dropdown-hover w3-black">
+        <button class="w3-button w3-small">PRICE <i class="fa fa-caret-down"></i></button>
+        <div class="w3-dropdown-content w3-bar-block w3-border w3-card-4 w3-small">
+            <a href="#" onclick='filterItems("ASC")' class="filter1 w3-bar-item w3-button">ASCENDING ORDER</a>
+            <a href="#" onclick='filterItems("DESC")' class="w3-bar-item w3-button">DESCENDING ORDER</a>
+        </div>
+    </div>
+
+    <!--Brands-->
+    <div class="w3-dropdown-hover w3-black">
+        <button class="w3-button w3-small">BRANDS <i class="fa fa-caret-down"></i></button>
+        <div class="w3-dropdown-content w3-bar-block w3-border w3-small">
+            <a href="#" onclick='filterItems("AGNÈS B")' class="w3-bar-item w3-button">AGNÈS B</a>
+            <a href="#" onclick='filterItems("ARMANI")' class="w3-bar-item w3-button">ARMANI</a>
+            <!--a href="#" class="w3-bar-item w3-button">BALENCIAGA</a>-->
+            <!--a href="#" class="w3-bar-item w3-button">BUGATTI</a>-->
+            <a href="#" onclick='filterItems("BURBERRY")' class="w3-bar-item w3-button">BURBERRY</a>
+            <!--a href="#" class="w3-bar-item w3-button">BOTTEGA VENETA</a>-->
+            <a href="#" onclick='filterItems("CELINE")' class="w3-bar-item w3-button">CELINE</a>
+            <a href="#" onclick='filterItems("CHANEL")' class="w3-bar-item w3-button">CHANEL</a>
+            <a href="#" onclick='filterItems("CHLOE")' class="w3-bar-item w3-button">CHLOE</a>
+            <a href="#" onclick='filterItems("COACH")' class="w3-bar-item w3-button">COACH</a>
+            <a href="#" onclick='filterItems("CARTIER")' class="w3-bar-item w3-button">CARTIER</a>
+            <a href="#" onclick='filterItems("DIOR")' class="w3-bar-item w3-button">DIOR</a>
+            <!--a href="#" class="w3-bar-item w3-button">DUNHILL</a>-->
+            <a href="#" onclick='filterItems("FENDI")' class="w3-bar-item w3-button">FENDI</a>
+            <!--a href="#" class="w3-bar-item w3-button">FURLA</a>-->
+            <a href="#" onclick='filterItems("GUCCI")' class="w3-bar-item w3-button">GUCCI</a>
+            <!--a href="#" class="w3-bar-item w3-button">GIVENCHY</a>-->
+            <a href="#" onclick='filterItems("HUGO BOSS")' class="w3-bar-item w3-button">HUGO BOSS</a>
+            <a href="#" onclick='filterItems("HERMES")' class="w3-bar-item w3-button">HERMES</a>
+            <a href="#" onclick='filterItems("JIMMY CHOO")' class="w3-bar-item w3-button">JIMMY CHOO</a>
+            <!--a href="#" class="w3-bar-item w3-button">JACOB & CO</a>-->
+            <!--a href="#" class="w3-bar-item w3-button">KENZO</a>-->
+            <!--a href="#" class="w3-bar-item w3-button">LONGINES</a>-->
+            <!--a href="#" class="w3-bar-item w3-button">LOEWE</a>-->
+            <a href="#" onclick='filterItems("LOUIS VUITTON")' class="w3-bar-item w3-button">LOUIS VUITTON</a>
+            <!--a href="#" class="w3-bar-item w3-button">MARC JACOBS</a>-->
+            <a href="#" onclick='filterItems("MULBERRY")' class="w3-bar-item w3-button">MULBERRY</a>
+            <a href="#" onclick='filterItems("MONTBLANC")' class="w3-bar-item w3-button">MONTBLANC</a>
+            <a href="#" onclick='filterItems("MIU MIU")' class="w3-bar-item w3-button">MIU MIU</a>
+            <a href="#" onclick='filterItems("PATEK PHILIPPE")' class="w3-bar-item w3-button">PATEK PHILIPPE</a>
+            <a href="#" onclick='filterItems("PRADA")' class="w3-bar-item w3-button">PRADA</a>
+            <!--a href="#" class="w3-bar-item w3-button">RALPH LAUREN</a>-->
+            <a href="#" onclick='filterItems("RAY BAN")' class="w3-bar-item w3-button">RAY BAN</a>
+            <a href="#" onclick='filterItems("ROLEX")' class="w3-bar-item w3-button">ROLEX</a>
+            <a href="#" onclick='filterItems("SAINT LAURENT")' class="w3-bar-item w3-button">SAINT LAURENT</a>
+            <a href="#" onclick='filterItems("SALVATORE FERRAGAMO")' class="w3-bar-item w3-button">SALVATORE FERRAGAMO</a>
+            <a href="#" onclick='filterItems("TAG HEUER")' class="w3-bar-item w3-button">TAG HEUER</a>
+            <a href="#" onclick='filterItems("TIFFANY & CO")' class="w3-bar-item w3-button">TIFFANY & CO</a>
+            <a href="#" onclick='filterItems("TODS")' class="w3-bar-item w3-button">TOD'S</a>
+            <!--a href="#" class="w3-bar-item w3-button">TUMI</a>-->
+            <a href="#" onclick='filterItems("TOMMY HILFIGER")' class="w3-bar-item w3-button">TOMMY HILFIGER</a>
+            <a href="#" onclick='filterItems("TUDOR")' class="w3-bar-item w3-button">TUDOR</a>
+            <a href="#" onclick='filterItems("VERSACE")' class="w3-bar-item w3-button">VERSACE</a>
+            <a href="#" onclick='filterItems("VALENTINO")' class="w3-bar-item w3-button">VALENTINO</a>
+            <a href="#" onclick='filterItems("VIVIENNE WESTWOOD")' class="w3-bar-item w3-button">VIVIENNE WESTWOOD</a>
+            <a href="#" onclick='filterItems("YVES SAINT LAURENT")' class="w3-bar-item w3-button">YVES SAINT LAURENT</a>
+            <a href="#" onclick='filterItems("ZEGNA")' class="w3-bar-item w3-button">ZEGNA</a>
+        </div>
+    </div>
+
+    <!--Color-->
+    <div class="w3-dropdown-hover w3-black">
+        <button class="w3-button w3-small">COLOR <i class="fa fa-caret-down"></i></button>
+        <div class="w3-dropdown-content w3-bar-block w3-border w3-small">
+            <a href="#" onclick='filterItems("BEIGE")' class="w3-bar-item w3-button">BEIGE</a>
+            <a href="#" onclick='filterItems("BLACK")' class="w3-bar-item w3-button">BLACK</a>
+            <a href="#" onclick='filterItems("BLUE")' class="w3-bar-item w3-button">BLUE</a>
+            <a href="#" onclick='filterItems("BROWN")' class="w3-bar-item w3-button">BROWN</a>
+            <a href="#" onclick='filterItems("GOLD")' class="w3-bar-item w3-button">GOLD</a>
+            <a href="#" onclick='filterItems("GREY")' class="w3-bar-item w3-button">GREY</a>
+            <a href="#" onclick='filterItems("GREEN")' class="w3-bar-item w3-button">GREEN</a>
+            <a href="#" onclick='filterItems("ORANGE")' class="w3-bar-item w3-button">ORANGE</a>
+            <a href="#" onclick='filterItems("PINK")' class="w3-bar-item w3-button">PINK</a>
+            <a href="#" onclick='filterItems("PURPLE")' class="w3-bar-item w3-button">PURPLE</a>
+            <a href="#" onclick='filterItems("RED")' class="w3-bar-item w3-button">RED</a>
+            <a href="#" onclick='filterItems("SILVER")' class="w3-bar-item w3-button">SILVER</a>
+            <a href="#" onclick='filterItems("WHITE")' class="w3-bar-item w3-button">WHITE</a>
+            <a href="#" onclick='filterItems("YELLOW")' class="w3-bar-item w3-button">YELLOW</a>
+        </div>
+    </div>
+
+    <!--Condition-->
+    <div class="w3-dropdown-hover w3-black">
+        <button class="w3-button w3-small">CONDITION <i class="fa fa-caret-down"></i></button>
+        <div class="w3-dropdown-content w3-bar-block w3-border w3-small">
+            <a href="#" onclick='filterItems("BRAND NEW")' class="w3-bar-item w3-button">BRAND NEW</a>
+            <a href="#" onclick='filterItems("PRE-LOVED")' class="w3-bar-item w3-button">PRE-LOVED</a>
+        </div>
+    </div>
+
+    <!--Merchant-->
+    <div class="w3-dropdown-hover w3-black">
+        <button class="w3-button w3-small">MERCHANT <i class="fa fa-caret-down"></i></button>
+        <div class="w3-dropdown-content w3-bar-block w3-border w3-small">
+            <a href="#" onclick='filterItems("AMAZON")' class="w3-bar-item w3-button">AMAZON</a>
+            <a href="#" onclick='filterItems("EBAY")' class="w3-bar-item w3-button">EBAY</a>
+            <a href="#" onclick='filterItems("REEBONZ")' class="w3-bar-item w3-button">REEBONZ</a>
+            <a href="#" onclick='filterItems("EZBUY")' class="w3-bar-item w3-button">EZBUY</a>
+            <a href="#" onclick='filterItems("GUMTREE")' class="w3-bar-item w3-button">GUMTREE</a>
+        </div>
+    </div>
+</div>
