@@ -1,7 +1,7 @@
 
 $.ajax({
     type: "GET",
-    url: "https://svcs.ebay.com/services/search/FindingService/v1?" + "SECURITY-APPNAME=" + "GlennYeo-Software-PRD-35d705b3d-b15b0374" + "&OPERATION-NAME=" + "findItemsByKeywords" + "&SERVICE-VERSION=" + "1.0.0" + "&RESPONSE-DATA-FORMAT=" + "JSON" + "&keywords=" + search_item + "&paginationInput.entriesPerPage=" + "5" + "&GLOBAL-ID=" + "EBAY-SG" + "&paginationInput.pageNumber=" + "1",
+    url: "https://svcs.ebay.com/services/search/FindingService/v1?" + "SECURITY-APPNAME=" + "GlennYeo-Software-PRD-35d705b3d-b15b0374" + "&OPERATION-NAME=" + "findItemsByKeywords" + "&SERVICE-VERSION=" + "1.0.0" + "&RESPONSE-DATA-FORMAT=" + "JSON" + "&keywords=" + search_item + "&paginationInput.entriesPerPage=" + "3" + "&GLOBAL-ID=" + "EBAY-SG" + "&paginationInput.pageNumber=" + "1",
     cache: false,
     dataType: "JSONP",
 
@@ -53,19 +53,19 @@ $.ajax({
             }
 
             //Insert to Item Table
-            $.ajax({
-                type: "POST",
-                url: "http://localhost/Lucxury_000webhost/Webservices/doAddItem.php",
-                data: {merchant_id: 1, product_name: product_name, price_currency: price_currency, price_amount: price_amount, brand: product_name, color: product_name, condition: condition, category: category, item_more_info_url: link},
-                cache: false,
-                dataType: "JSON",
-                success: function (data, textStatus) {
-                },
-                error: function (obj, textStatus, errorThrown) {
-                    console.log("Error " + textStatus + ": " + errorThrown);
-
-                }
-            });
+//            $.ajax({
+//                type: "POST",
+//                url: "http://localhost/Lucxury_000webhost/Webservices/doAddItem.php",
+//                data: {merchant_id: 1, product_name: product_name, price_currency: price_currency, price_amount: price_amount, brand: product_name, color: product_name, condition: condition, category: category, item_more_info_url: link},
+//                cache: false,
+//                dataType: "JSON",
+//                success: function (data, textStatus) {
+//                },
+//                error: function (obj, textStatus, errorThrown) {
+//                    console.log("Error " + textStatus + ": " + errorThrown);
+//
+//                }
+//            });
             //Insert to ItemTemp Table
             $.ajax({
                 type: "POST",
@@ -74,13 +74,12 @@ $.ajax({
                 cache: false,
                 dataType: "JSON",
                 success: function (data, textStatus) {
+                    // alert("success");
                 },
                 error: function (obj, textStatus, errorThrown) {
                     console.log("Error " + textStatus + ": " + errorThrown);
-
                 }
             });
-
         }
     },
     error: function (obj, textStatus, errorThrown) {
@@ -88,5 +87,3 @@ $.ajax({
         alert("fail");
     }
 });
-
-// SELECT * FROM item_filter INNER JOIN image_filter ON item_filter.itemfilter_id=image_filter.itemfilter_id

@@ -4,7 +4,7 @@ include 'dbconn.php';
 if (isset($_GET['priceType'])) {
     
     $priceType = $_GET['priceType'];
-    $query = "SELECT * FROM item INNER JOIN image ON item.item_id = image.item_id INNER JOIN merchant ON item.merchant_id = item.merchant_id ORDER BY item_price_amount " . $priceType;
+    $query = "SELECT * FROM `item_filter` RIGHT JOIN merchant ON merchant.merchant_id=item_filter.merchant_id ORDER BY itemfilter_price_amount " . $priceType;
     $result = mysqli_query($link, $query);
     while ($row = mysqli_fetch_assoc($result)) {
         $items[] = $row;

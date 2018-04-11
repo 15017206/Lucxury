@@ -1,7 +1,7 @@
 <?php
 
 include 'dbconn.php';
-$query = "SELECT itemfilter_id, image_url FROM item_filter inner join image_filter on item_filter.itemfilter_id = image_filter.itemfilter_id";
+$query = "SELECT * FROM `item_filter` RIGHT JOIN merchant ON merchant.merchant_id=item_filter.merchant_id";
 $result = mysqli_query($link, $query);
 while ($row = mysqli_fetch_assoc($result)) {
     $students[] = $row;

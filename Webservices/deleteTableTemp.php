@@ -2,7 +2,7 @@
 
 include 'dbconn.php';
 
-$query = "DELETE FROM item_temp";
+$query = "DELETE FROM item_filter";
 
 $result = mysqli_query($link, $query);
 
