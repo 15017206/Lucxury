@@ -44,7 +44,7 @@ $.ajax({
             merchant = response['findItemsByKeywordsResponse'][0]['searchResult'][0]['item'][i]['globalId'][0];
             link = response['findItemsByKeywordsResponse'][0]['searchResult'][0]['item'][i]['viewItemURL'][0];
 
-            $("#some_container").append('<div class="w3-third"><div class="w3"><br/><img id="thumbnail1" src="' + imagelink + '" style="width:250px;"><div class="w3-container" id="product_name"><h6 id="product_nameh6">PRODUCT NAME: ' + product_name + '</h6><h6 style="font-weight: bold">PRICE: ' + price_currency + " " + price_amount + '</h6><h6 id="brand' + i + '">BRAND: ' + brand + '</h6><h6 id="color' + i + '">COLOR: </h6><h6>CONDITION: ' + condition + '</h6><h6>MERCHANT: ' + merchant + '</h6><div>View Count: 99</div><a href="' + link + '"><button class="w3-button w3-block w3-border">More Information</button></a><br/></div></div></div>');
+           // $("#some_container").append('<div class="w3-third"><div class="w3"><br/><img id="thumbnail1" src="' + imagelink + '" style="width:250px;"><div class="w3-container" id="product_name"><h6 id="product_nameh6">PRODUCT NAME: ' + product_name + '</h6><h6 style="font-weight: bold">PRICE: ' + price_currency + " " + price_amount + '</h6><h6 id="brand' + i + '">BRAND: ' + brand + '</h6><h6 id="color' + i + '">COLOR: </h6><h6>CONDITION: ' + condition + '</h6><h6>MERCHANT: ' + merchant + '</h6><div>View Count: 99</div><a href="' + link + '"><button class="w3-button w3-block w3-border">More Information</button></a><br/></div></div></div>');
             if ($("#brand" + i).val() === "") {
                 $("#brand" + i).hide();
             }
