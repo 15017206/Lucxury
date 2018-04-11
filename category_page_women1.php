@@ -51,6 +51,12 @@ and open the template in the editor.
                 max-width: 100%;
 
             }
+            #cell1 {
+                max-width: 100%;
+                min-width: 100%;
+                min-height: 100%;
+                max-height: 100%;
+             }
         </style>
 
         <title></title>
@@ -60,26 +66,34 @@ and open the template in the editor.
 
         <!--Apparels-->
         <div class="w3-display-container">
-            <a href="subcategory_page_women1.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_women_images/apparels.jpg" alt=""/></a>
-            <div class="w3-display-middle w3-large"><p style=""></p></div>
+            <form action="subcategory_page_women1.php" method="post">
+                <input type="hidden" name="search_item" value="shirts">
+                <button class="w3-btn"><img id="cell1" src="images/category_page_women_images/apparels.jpg" alt=""/></button>
+            </form>
         </div>
 
         <!--Accessories-->
         <div class="w3-display-container">
-            <a href="subcategory_page_women3.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_women_images/bags.jpg" alt=""/></a>
-            <div class="w3-display-middle w3-large"><p style=""></p></div>
+            <form action="subcategory_page_women3.php" method="post">
+                <input type="hidden" name="search_item" value="accessories">
+                <button class="w3-btn"><img id="cell1" src="images/category_page_women_images/accessories.jpg" alt=""/></button>
+            </form>
         </div>
 
         <!--Bags-->
         <div class="w3-display-container">
-            <a href="subcategory_page_women2.php"><img id="banner1" style="filter: brightness(70%);"src="images/category_page_women_images/accessories.jpg" alt=""/></a>
-            <div class="w3-display-middle w3-large"><p style=""></p></div>
+            <form action="subcategory_page_women2.php" method="post">
+                <input type="hidden" name="search_item" value="bags">
+                <button class="w3-btn"><img id="cell1" src="images/category_page_women_images/bags.jpg" alt=""/></button>
+            </form>
         </div>
 
         <!--Shoes-->
         <div class="w3-display-container">
-            <a href="subcategory_page_women4.php"><img id="banner1" style="filter: brightness(70%);" src="images/category_page_women_images/shoes.jpg" alt=""/></a>
-            <div class="w3-display-middle w3-large"><p style="">S</p></div>
+            <form action="subcategory_page_women4.php" method="post">
+                <input type="hidden" name="search_item" value="shoes">
+                <button class="w3-btn"><img id="cell1" src="images/category_page_women_images/shoes.jpg" alt=""/></button>
+            </form>
         </div>
         </br>
     <?php include 'templateBar_bottom.php'; ?>
