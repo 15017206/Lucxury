@@ -51,6 +51,12 @@ and open the template in the editor.
                 max-width: 100%;
 
             }
+            #cell1 {
+                max-width: 100%;
+                min-width: 100%;
+                min-height: 100%;
+                max-height: 100%;
+             }
         </style>
 
         <title></title>
