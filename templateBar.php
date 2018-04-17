@@ -122,6 +122,7 @@ and open the template in the editor.
             <!--<a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">SETTINGS</a>-->
             <a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">FAQ</a>
             <!--<a href="index.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">LOGOUT</a>-->
+            <a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">MERCHANT LOGIN PORTAL</a>
         </div>
 
     </body>
