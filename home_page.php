@@ -68,7 +68,7 @@ and open the template in the editor.
                 <div class="carousel-item active">
                     <a href=""><img id="banner1" src="images/home_page_images/banner1.jpg" alt=""/></a>
                     <div class="carousel-caption">
-                        <h3>WINTER COLLECTION</h3>
+                        <h3></h3>
                     </div>
                 </div>
             </div>
