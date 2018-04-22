@@ -103,9 +103,9 @@ and open the template in the editor.
                 <!--                <li data-target="#demo" data-slide-to="1"></li>
                                 <li data-target="#demo" data-slide-to="2"></li>-->
             </ul>
-            <div class="w3-container w3-center">
-                <h2><b>FEATURED MERCHANTS</b></h2>
-            </div>
+            
+            <img id="banner1" src="images/home_page_images/fm.jpg" alt="" style=""/>
+            
             <!-- The featured -->
 
             <div class="w3">
@@ -133,9 +133,7 @@ and open the template in the editor.
 
         </div>
 
-        <div class="w3-container w3-center">
-            <h2><b>CATEGORY</b></h2>
-        </div>
+            <img id="banner1" src="images/home_page_images/category.jpg" alt="" style=""/>
         <!--men & women carousel-->
         <div class="w3">
             <div class=" w3-half w3-btn w3-display-container">
