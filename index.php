@@ -68,9 +68,9 @@ and open the template in the editor.
         <div class="w3-container w3-center ">
             <br/>
             <form>
-                <input class="w3-input w3-text-black w3-small" type="text" placeholder="USERNAME" style="background: white">
+                <input class="w3-input w3-text-black w3-small w3-center" type="text" placeholder="USERNAME" style="background: white">
                 <br/>
-                <input class="w3-input w3-text-black w3-small" type="text" placeholder="PASSWORD" style="background: white">
+                <input class="w3-input w3-text-black w3-small w3-center" type="text" placeholder="PASSWORD" style="background: white">
                 <a href="" style="font-size: 80%; text-decoration:none">FORGOT PASSWORD?</a>
                 <br/>
                 <br/>
