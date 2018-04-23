@@ -65,7 +65,7 @@ and open the template in the editor.
     
     <body>
         
-        <div class="w3-container">
+        <div class="w3-container w3-center ">
             <br/>
             <form>
                 <input class="w3-input w3-text-black w3-small" type="text" placeholder="USERNAME" style="background: white">
@@ -76,22 +76,24 @@ and open the template in the editor.
                 <br/>
                 <br/>
                 <div class="w3-row">
-                    <div class="w3-half w3-container">
-                        <a role="button" href="home_page.php" class="w3-block w3-btn w3-blue" style="opacity: 0.8;">LOGIN</a>
+                    <div class="w3-container">
+                        <a role="button" href="home_page.php" class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:50%">LOGIN</a>
                     </div>
-                    <div class="w3-half w3-container">
-                        <button class="w3-block w3-btn w3-blue" style="opacity: 0.8;">SIGN UP</button>
+                  </br>
+                    <div class="w3-container">
+                        <button class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:50%">SIGN UP</button>
                     </div>
                 </div>
 
                 <div class="w3-row">
                     <br/>
-                    <div class="w3-half w3-container ">
-                        <button class="w3-block w3-btn w3-blue" style="opacity: 0.8;">LOGIN WITH FACEBOOK</button>
+                    <div class="w3-container ">
+                        <button class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:50%">LOGIN WITH FACEBOOK</button>
                     </div>
-                    <div class="w3-half w3-container ">
+                   </br>
+                    <div class="w3-container ">
 
-                        <a id="subscribe1" href="login_page_subscribe.php" onclick="showMailing()"  class="w3-block w3-btn w3-blue" style="opacity: 0.8;">SUBSCRIBE NOW!</a>
+                        <a id="subscribe1" href="login_page_subscribe.php" onclick="showMailing()"  class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:50%">SUBSCRIBE NOW!</a>
                     </div>
                 </div>
 
