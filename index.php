@@ -77,23 +77,23 @@ and open the template in the editor.
                 <br/>
                 <div class="w3-row">
                     <div class="w3-container">
-                        <a role="button" href="home_page.php" class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:50%">LOGIN</a>
+                        <a role="button" href="home_page.php" class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:60%">LOGIN</a>
                     </div>
                   </br>
                     <div class="w3-container">
-                        <button class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:50%">SIGN UP</button>
+                        <button class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:60%">SIGN UP</button>
                     </div>
                 </div>
 
                 <div class="w3-row">
                     <br/>
                     <div class="w3-container ">
-                        <button class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:50%">LOGIN WITH FACEBOOK</button>
+                        <button class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:60%">LOGIN WITH FACEBOOK</button>
                     </div>
                    </br>
                     <div class="w3-container ">
 
-                        <a id="subscribe1" href="login_page_subscribe.php" onclick="showMailing()"  class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:50%">SUBSCRIBE NOW!</a>
+                        <a id="subscribe1" href="login_page_subscribe.php" onclick="showMailing()"  class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:60%">SUBSCRIBE NOW!</a>
                     </div>
                 </div>
 
