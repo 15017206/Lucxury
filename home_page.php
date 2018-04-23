@@ -82,16 +82,17 @@ and open the template in the editor.
             </a>
         </div>
 
-        <div class="w3-row">
+    <div class="w3-row w3-mobile">
             <form action="product_page.php" method="post">
-                <div class="w3-col" style="width:89%">
+                <div class="w3-col" style="width:100%">
                     <input name="search_item" class="w3-input w3-border w3-leftbar w3-margin-top w3-margin-bottom" placeholder="SEARCH ITEM HERE" type="text">
                 </div>
-                <div class="w3-col" style="width:4.5%">
-                    <button type="submit" class="w3-button w3-block w3-tiny w3-white w3-hover-white w3-margin-top w3-margin-bottom"><i class="material-icons">search</i></button>
+                <div class="w3-row w3-half w3-mobile " style="width:100%">
+                    <button type="submit" class="w3-button w3-block w3-tiny w3-white w3-hover-white"><i class="material-icons">search</i></button>
                 </div>
             </form>
         </div>
+
 
 
         <!--featured carousel-->
