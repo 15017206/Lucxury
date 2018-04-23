@@ -43,21 +43,12 @@ and open the template in the editor.
         </script>
 
         <style>
-            body{
-                width: 100%;
-                background-image: url("images/login_page_images/Untitled.png");
-                background-attachment: fixed;
-                background-repeat: no-repeat;
-                background-size: cover;
+            img#banner1{
+                max-width: 100%;
+                width: 100vw;
             }
 
-            #logininfo {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                color: white;
-            }
+
 
 /*            ::placeholder {  Chrome, Firefox, Opera, Safari 10.1+ 
                 color: white;
@@ -69,28 +60,27 @@ and open the template in the editor.
             }*/
         </style>
     </head>
+    
+    <img id="banner1" src="images/login_page_images/loginbanner.jpg" alt="" style=""/>
+    
     <body>
-        <div id="logininfo">
-            <h1 style="word-wrap: normal; font-size: 6vw;">WELCOME TO</h1>
-            <!--<h1 style="font-size: 8vw;">L U C ⚔ U R Y</h1>-->
-            <img src="images/login_page_images/Lucxury Website (Logo) 1.png" alt="" style="max-width: 110%;"/>
-            <br/>
-            <br/>
+        
+        <div class="w3-container">
             <br/>
             <form>
-                <input class="w3-input w3-text-white w3-large" type="text" placeholder="USERNAME" style="background: transparent">
+                <input class="w3-input w3-text-black w3-large" type="text" placeholder="USERNAME" style="background: white">
                 <br/>
-                <input class="w3-input w3-text-white w3-large" type="text" placeholder="PASSWORD" style="background: transparent">
+                <input class="w3-input w3-text-black w3-large" type="text" placeholder="PASSWORD" style="background: white">
                 <a href="" style="font-size: 80%; text-decoration:none">FORGOT PASSWORD?</a>
                 <br/>
                 <br/>
                 <br/>
                 <div class="w3-row">
                     <div class="w3-half w3-container">
-                        <a role="button" href="home_page.php" class="w3-block w3-btn w3-white" style="opacity: 0.8;">LOGIN</a>
+                        <a role="button" href="home_page.php" class="w3-block w3-btn w3-blue" style="opacity: 0.8;">LOGIN</a>
                     </div>
                     <div class="w3-half w3-container">
-                        <button class="w3-block w3-btn w3-white" style="opacity: 0.8;">SIGN UP</button>
+                        <button class="w3-block w3-btn w3-blue" style="opacity: 0.8;">SIGN UP</button>
                     </div>
                 </div>
 
