@@ -66,7 +66,7 @@ and open the template in the editor.
             <!-- The slideshow -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <a href=""><img id="banner1" src="images/home_page_images/banner1.jpg" alt=""/></a>
+                    <a href=""><img id="banner1" src="images/home_page_images/es.jpg" alt=""/></a>
                     <div class="carousel-caption">
                         <h3></h3>
                     </div>
