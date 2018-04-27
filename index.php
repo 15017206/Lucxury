@@ -71,7 +71,13 @@ and open the template in the editor.
         </style>
     </head>
     <body>
-
-</div>
+                        <div class="w3-display-container w3-display-bottommiddle">
+                            
+                        <a role="button" href="https://www.facebook.com/lucxuryglobal/?ref=your_pages"><img id="" style="" src="images/templatebar_bottom_images/facebook.jpg" alt=""/></a>
+                        <a role="button" href="https://www.instagram.com/lucxuryglobal/"><img id="" style="" src="images/templatebar_bottom_images/instagram.jpg" alt=""/></a>
+                        <a role="button" href="https://www.youtube.com/channel/UCeGiwGkYZ9p8kxj8YwN4fIw?view_as=subscriber"><img id="" style="" src="images/templatebar_bottom_images/youtube.jpg" alt=""/></a>
+                        <a role="button" href="https://twitter.com/lucxuryglobal"><img id="" style="" src="images/templatebar_bottom_images/twitter.jpg" alt=""/></a>
+                        </div>
+                            
 </body>
 </html>
