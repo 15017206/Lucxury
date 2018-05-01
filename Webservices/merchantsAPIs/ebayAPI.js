@@ -1,7 +1,7 @@
 
 $.ajax({
     type: "GET",
-    url: "https://svcs.ebay.com/services/search/FindingService/v1?" + "SECURITY-APPNAME=" + "GlennYeo-Software-PRD-35d705b3d-b15b0374" + "&OPERATION-NAME=" + "findItemsByKeywords" + "&SERVICE-VERSION=" + "1.0.0" + "&RESPONSE-DATA-FORMAT=" + "JSON" + "&keywords=" + search_item + "&paginationInput.entriesPerPage=" + "2" + "&GLOBAL-ID=" + "EBAY-SG" + "&paginationInput.pageNumber=" + "1",
+    url: "https://svcs.ebay.com/services/search/FindingService/v1?" + "SECURITY-APPNAME=" + "GlennYeo-Software-PRD-35d705b3d-b15b0374" + "&OPERATION-NAME=" + "findItemsByKeywords" + "&SERVICE-VERSION=" + "1.0.0" + "&RESPONSE-DATA-FORMAT=" + "JSON" + "&keywords=" + search_item + "&paginationInput.entriesPerPage=" + "9" + "&GLOBAL-ID=" + "EBAY-SG" + "&paginationInput.pageNumber=" + "1",
     cache: false,
     dataType: "JSONP",
 
@@ -69,11 +69,11 @@ $.ajax({
             $.ajax({
                 type: "POST",
                 url: "http://localhost/Lucxury/Webservices/doAddItem_itemfilter.php",
-                data: {merchant_id: 1, product_name: product_name, price_currency: price_currency, price_amount: price_amount, brand: product_name, color: product_name, condition: condition, category: category, item_more_info_url: link},
+                data: {merchant_id: 1, product_name: product_name, price_currency: price_currency, price_amount: price_amount, brand: product_name, color: product_name, condition: condition, category: category, item_more_info_url: link, image_link: imagelink},
                 cache: false,
                 dataType: "JSON",
                 success: function (data, textStatus) {
-                    // alert("success");
+//                     alert("success");
                 },
                 error: function (obj, textStatus, errorThrown) {
                     console.log("Error " + textStatus + ": " + errorThrown);

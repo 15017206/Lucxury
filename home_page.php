@@ -105,7 +105,7 @@ and open the template in the editor.
                                 <li data-target="#demo" data-slide-to="2"></li>-->
             </ul>
             
-            <img id="banner1" src="images/home_page_images/fm.jpg" alt="" style=""/>
+            <!--<img id="banner1" src="images/home_page_images/fm.jpg" alt="" style=""/>-->
             
             <!-- The featured -->
 
@@ -134,7 +134,7 @@ and open the template in the editor.
 
         </div>
 
-            <img id="banner1" src="images/home_page_images/category.jpg" alt="" style=""/>
+            <!--<img id="banner1" src="images/home_page_images/category.jpg" alt="" style=""/>-->
         <!--men & women carousel-->
         <div class="w3">
             <div class=" w3-half w3-btn w3-display-container">
