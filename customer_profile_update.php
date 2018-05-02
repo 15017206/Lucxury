@@ -40,11 +40,11 @@ if (mysqli_num_rows($result) > 0) {
                 $("#dob").val("<?php echo $dob ?>");
 
                 if ("<?php echo $gender ?>" == "female") {
-                    alert("female");
+
                     $("#exampleRadios2").prop("checked", true);
                     
                 } else {
-                    alert("male");
+
                     $("#exampleRadios1").prop("checked", true);
                     
                 }
@@ -98,10 +98,10 @@ if (mysqli_num_rows($result) > 0) {
     </head>
     <body>
         <div class="container">
-            <form method="post" action="https://lucxury.com/do_customer_profile_signup.php">
+            <form method="post" action="do_customer_profile_update.php">
                 <p>Hi, <?php echo $username; ?> and your ID is <?php echo $user_id ?></p>
 
-
+                <input type="hidden" name="user_id" id="user_id" value="<?php echo $user_id ?>">
                 <!--email-->
                 <div class="form-group">
                     <label for="email">EMAIL ADDRESS</label>
@@ -112,7 +112,7 @@ if (mysqli_num_rows($result) > 0) {
                 <!--username-->
                 <div class="form-group">
                     <label for="username">USERNAME</label>
-                    <input type="text" class="form-control" name="username" id="username" aria-describedby="usernameHelp" required placeholder="">
+                    <input type="text" class="form-control" name="username" id="username" aria-describedby="usernameHelp" readonly placeholder="">
                     <small id="usernameHelp" class="form-text text-muted">Your username will be kept confidential</small>
                 </div>
 
@@ -188,7 +188,7 @@ if (mysqli_num_rows($result) > 0) {
                     <small id="countryHelp" class="form-text text-muted">e.g. Singapore</small>
                 </div>
 
-                <button type="submit" class="btn btn-primary" style="width:20%">Update Profile</button>
+                <button type="submit" class="btn btn-primary" style="width:20%">Update</button>
                 <br/>
                 <!--<button type="submit" class="btn btn-primary" style="width:20%">SAVE</button>-->
                 <br/>

@@ -69,7 +69,7 @@ and open the template in the editor.
                 <div class="form-group">
                     <label for="username">USERNAME</label>
                     <input type="text" class="form-control" name="username" id="username" aria-describedby="usernameHelp" required placeholder="">
-                    <small id="usernameHelp" class="form-text text-muted">Your username will be kept confidential</small>
+                    <small id="usernameHelp" class="form-text text-muted">Choose your username carefully. It cannot be changed once created.</small>
                 </div>
 
                 <!--password-->

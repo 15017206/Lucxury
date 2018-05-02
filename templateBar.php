@@ -69,6 +69,9 @@ session_start()
                 }
 
             }
+
+
+
         </script>
 
         <!--style-->
@@ -126,8 +129,9 @@ session_start()
             if (isset($_SESSION['username'])) {
                 ?>
                 <script>
-                    $("#mySidebar").append("<p id='customer_login_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Hello, " + <?php echo $_SESSION['username'] ?> +"</p>");
-                    $("#mySidebar").append("<a href='customer_profile_edit.php' id='customer_login_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Customer edit profile</a>");
+                    $("#mySidebar").append("<p id='customer_login_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Hello, " + <?php echo $_SESSION['username'] ?> + "</p>");
+                    $("#mySidebar").append("<a href='customer_profile_update.php' id='customer_update_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Customer edit profile</a>");
+                        $("#mySidebar").append("<a href='do_customer_profile_logout.php' id='logout' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Logout</a>");
                 </script>
             <?php } else { ?>
                 <script>
