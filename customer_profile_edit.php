@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<?php include 'templateBar.php'; ?>
+<?php
+include 'templateBar.php';
+$user_id = $_SESSION['user_id'];
+$username = $_SESSION['username'];
+
+include 'Webservices/dbconn.php';
+$query = "select * from `user` where user_id=$user_id";
+$result = mysqli_query($link, $query) or die(mysqli_error($link));
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_array($result);
+    $email = $row['email'];
+    $username = $row['username'];
+    $password = $row['password'];
+    $first_name = $row['first_name'];
+    $last_name = $row['last_name'];
+    $nric = $row['nric'];
+    $country = $row['country'];
+    $dob = $row['dob'];
+    $gender = $row['gender'];
+    $address = $row['address'];
+    $postal_code = $row['postal_code'];
+}
+?> 
 <html>
     <head>
         <meta charset="UTF-8">
@@ -13,7 +30,32 @@ and open the template in the editor.
         <script>
             $(document).ready(function () {
                 postalCode_blur();
+
+                $("#email").val("<?php echo $email ?>");
+                $("#username").val("<?php echo $username ?>");
+                $("#password").val("<?php echo $password ?>");
+                $("#first_name").val("<?php echo $first_name ?>");
+                $("#last_name").val("<?php echo $last_name ?>");
+                $("#nric").val("<?php echo $nric ?>");
+                $("#dob").val("<?php echo $dob ?>");
+
+                if ("<?php echo $gender ?>" == "female") {
+                    alert("female");
+                    $("#exampleRadios2").prop("checked", true);
+                    
+                } else {
+                    alert("male");
+                    $("#exampleRadios1").prop("checked", true);
+                    
+                }
+
+                
+
+                $("#postal_code").val("<?php echo $postal_code ?>");
+                $("#home_address").val("<?php echo $address ?>");
+                $("#country").val("<?php echo $country ?>");
             });
+
             function postalCode_blur() {
                 var address1 = "";
                 $("#postal_code").blur(function () {
@@ -56,7 +98,9 @@ and open the template in the editor.
     </head>
     <body>
         <div class="container">
-            <form method="post" action="do_customer_profile_signup.php">
+            <form method="post" action="https://lucxury.com/do_customer_profile_signup.php">
+                <p>Hi, <?php echo $username; ?> and your ID is <?php echo $user_id ?></p>
+
 
                 <!--email-->
                 <div class="form-group">
@@ -144,8 +188,8 @@ and open the template in the editor.
                     <small id="countryHelp" class="form-text text-muted">e.g. Singapore</small>
                 </div>
 
-                <button type="submit" class="btn btn-primary" style="width:20%">SIGN UP</button>
-
+                <button type="submit" class="btn btn-primary" style="width:20%">Update Profile</button>
+                <br/>
                 <!--<button type="submit" class="btn btn-primary" style="width:20%">SAVE</button>-->
                 <br/>
             </form>

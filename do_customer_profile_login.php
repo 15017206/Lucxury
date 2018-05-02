@@ -10,7 +10,7 @@ $result = mysqli_query($link, $query) or die(mysqli_error($link));
 
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
-        $_SESSION['user_id'] = $row['id'];
+        $_SESSION['user_id'] = $row['user_id'];
         $_SESSION['username'] = $row['username'];
         header("location: home_page.php");
         $msg = "hello";

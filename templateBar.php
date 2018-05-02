@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php
+session_start()
+?>
 <html lang="en">
 
     <!--head-->
@@ -81,7 +79,7 @@ and open the template in the editor.
             #topbarlogo {
                 max-width: 100%;
             }
-            
+
             #hidepls {
                 visibility: hidden;
             }
@@ -123,10 +121,19 @@ and open the template in the editor.
             <a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">FAQ</a>
             <!--<a href="index.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">LOGOUT</a>-->
             <a href="lucxury_webstore_login.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">MERCHANT LOGIN PORTAL</a>
-            
-            <a href="login_page.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">Customer login page</a>
             <!--<a href="lucxury_webstore_login.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">MERCHANT LOGIN PORTAL</a>-->
+            <?php
+            if (isset($_SESSION['username'])) {
+                ?>
+                <script>
+                    $("#mySidebar").append("<p id='customer_login_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Hello, " + <?php echo $_SESSION['username'] ?> +"</p>");
+                    $("#mySidebar").append("<a href='customer_profile_edit.php' id='customer_login_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Customer edit profile</a>");
+                </script>
+            <?php } else { ?>
+                <script>
+                    $("#mySidebar").append("<a href='login_page.php' id='customer_login_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Customer login page</a>");
+                </script>
+            <?php } ?>
         </div>
-
     </body>
 </html>
