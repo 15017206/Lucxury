@@ -26,7 +26,7 @@ and open the template in the editor.
                 })
                 document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
             }
-            
+
 //            $(document).ready(function(){
 //               $("#subscribe1").onclick(function(){
 //                  alert("456");
@@ -37,8 +37,8 @@ and open the template in the editor.
 //                document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 //                  alert("123");
 //               });
-               
-               
+
+
 //            });
         </script>
 
@@ -47,66 +47,56 @@ and open the template in the editor.
                 max-width: 100%;
                 width: 100vw;
             }
-
-
-
-/*            ::placeholder {  Chrome, Firefox, Opera, Safari 10.1+ 
-                color: white;
-                opacity: 1;  Firefox 
-            }
-
-            :-ms-input-placeholder {  Internet Explorer 10-11 
-                color: white;
-            }*/
         </style>
     </head>
-    
+
     <img id="banner1" src="images/login_page_images/loginbanner.jpg" alt="" style=""/>
-    
+
     <body>
-        
+
         <div class="w3-container w3-center ">
             <br/>
-            <form>
-                <input class="w3-input w3-text-black w3-small w3-center" type="text" placeholder="USERNAME" style="background: white">
+            <form method="post" action="do_customer_profile_login.php">
+                <input required name="username" class="w3-input w3-text-black w3-small w3-center" type="text" placeholder="USERNAME" style="background: white">
                 <br/>
-                <input class="w3-input w3-text-black w3-small w3-center" type="text" placeholder="PASSWORD" style="background: white">
+                <input required name="password" class="w3-input w3-text-black w3-small w3-center" type="text" placeholder="PASSWORD" style="background: white">
                 <a href="" style="font-size: 80%; text-decoration:none">FORGOT PASSWORD?</a>
                 <br/>
                 <br/>
                 <br/>
                 <div class="w3-row">
                     <div class="w3-row">
-                        <a role="button" href="home_page.php" class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:60%">LOGIN</a>
-                    </div>   
-                  </br>
-                     <div class="w3-row">
-                        <a role="button" href="user_dashboard_signup.php" class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:60%">SIGN UP</a>
+                        <button type="submit" class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:60%">LOGIN</button>
                     </div>
-                  </br>
+
+                    <br/>
+                    <div class="w3-row">
+                        <a role="button" href="customer_profile_signup.php" class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:60%">SIGN UP</a>
+                    </div>
+                    </br>
                     <div class="w3-row">
                         <a role="button" href="" class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:60%">LOGIN WITH FACEBOOK</a>
                     </div>
-                   </br>
+                    </br>
                     <div class="w3-row">
                         <a id="subscribe1" href="login_page_subscribe.php" onclick="showMailing()"  class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:60%">SUBSCRIBE NOW!</a>
                     </div>
-               </div> 
-</br>
+                </div>
                 </br>
-                    <div class="w3-display-container w3-border-top w3-border-bottom w3-border-white">
-                        
-                        <a href="https://www.facebook.com/lucxuryglobal/?ref=your_pages"><img id="" style="" src="images/templatebar_bottom_images/facebook.jpg" alt=""/></a>
-                        
-                        <a href="https://www.instagram.com/lucxuryglobal/"><img id="" style="" src="images/templatebar_bottom_images/instagram.jpg" alt=""/></a>
-                     
-                        <!--<a href="https://www.pinterest.com/lucxury/"><img id="" style="" src="images/templatebar_bottom_images/pinterest.jpg" alt=""/></a>-->
-                     
-                        <a href="https://www.youtube.com/channel/UCeGiwGkYZ9p8kxj8YwN4fIw?view_as=subscriber"><img id="" style="" src="images/templatebar_bottom_images/youtube.jpg" alt=""/></a>
-                    
-                        <a href="https://twitter.com/lucxuryglobal"><img id="" style="" src="images/templatebar_bottom_images/twitter.jpg" alt=""/></a>
-                    </div>
+                </br>
+                <div class="w3-display-container w3-border-top w3-border-bottom w3-border-white">
 
+                    <a href="https://www.facebook.com/lucxuryglobal/?ref=your_pages"><img id="" style="" src="images/templatebar_bottom_images/facebook.jpg" alt=""/></a>
+
+                    <a href="https://www.instagram.com/lucxuryglobal/"><img id="" style="" src="images/templatebar_bottom_images/instagram.jpg" alt=""/></a>
+
+   <!--<a href="https://www.pinterest.com/lucxury/"><img id="" style="" src="images/templatebar_bottom_images/pinterest.jpg" alt=""/></a>-->
+
+                    <a href="https://www.youtube.com/channel/UCeGiwGkYZ9p8kxj8YwN4fIw?view_as=subscriber"><img id="" style="" src="images/templatebar_bottom_images/youtube.jpg" alt=""/></a>
+
+                    <a href="https://twitter.com/lucxuryglobal"><img id="" style="" src="images/templatebar_bottom_images/twitter.jpg" alt=""/></a>
+                </div>
+            </form>
         </div>
     </form>
 </div>

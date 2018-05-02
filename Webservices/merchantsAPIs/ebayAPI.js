@@ -68,7 +68,7 @@ $.ajax({
             //Insert to ItemTemp Table
             $.ajax({
                 type: "POST",
-                url: "http://localhost/Lucxury/Webservices/doAddItem_itemfilter.php",
+                url: "https://lucxury.com/Webservices/doAddItem_itemfilter.php",
                 data: {merchant_id: 1, product_name: product_name, price_currency: price_currency, price_amount: price_amount, brand: product_name, color: product_name, condition: condition, category: category, item_more_info_url: link, image_link: imagelink},
                 cache: false,
                 dataType: "JSON",

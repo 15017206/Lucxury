@@ -29,6 +29,9 @@ mysqli_close($link);
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="refresh" content="3; URL=https://lucxury.com/home_page.php">
+<meta name="keywords" content="automatic redirection">
         <title></title>
         <?php include 'scripts/bootstrap_scripts/bootstrap_scripts.php'; ?>
         <script>
@@ -38,8 +41,6 @@ mysqli_close($link);
         </script>
     </head>
     <body>
-        <?php
-        // put your code here
-        ?>
+        <p>Please wait while the page redirects...</p>
     </body>
 </html>
