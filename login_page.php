@@ -40,6 +40,45 @@ and open the template in the editor.
 
 
 //            });
+
+            //Do not touch
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '{your-app-id}',
+                    cookie: true,
+                    xfbml: true,
+                    version: '{latest-api-version}'
+                });
+
+                FB.AppEvents.logPageView();
+
+            };
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+
+            {
+                status: 'connected',
+                        authResponse: {
+                            accessToken: '...',
+                            expiresIn: '...',
+                            signedRequest: '...',
+                            userID: '...'
+                        }
+            }
+            // end of do not touch
         </script>
 
         <style>
@@ -49,11 +88,21 @@ and open the template in the editor.
             }
         </style>
     </head>
-
-    <img id="banner1" src="images/login_page_images/loginbanner.jpg" alt="" style=""/>
-
     <body>
+        <!--Do not touch 2-->
+        <div id="fb-root"></div>
+        <script>(function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.0&appId=1447427822029147&autoLogAppEvents=1';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+        <!--End of do not touch 2-->
 
+        <img id="banner1" src="images/login_page_images/loginbanner.jpg" alt="" style=""/>
         <div class="w3-container w3-center ">
             <br/>
             <form method="post" action="do_customer_profile_login.php">
@@ -75,7 +124,8 @@ and open the template in the editor.
                     </div>
                     </br>
                     <div class="w3-row">
-                        <a role="button" href="" class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:60%">LOGIN WITH FACEBOOK</a>
+                        <!--<a role="button" href="" class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:60%">LOGIN WITH FACEBOOK</a>-->
+                        <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
                     </div>
                     </br>
                     <div class="w3-row">
@@ -98,7 +148,5 @@ and open the template in the editor.
                 </div>
             </form>
         </div>
-    </form>
-</div>
-</body>
+    </body>
 </html>
