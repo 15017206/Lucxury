@@ -16,10 +16,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
 
         <!--jQuery library--> 
-        <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
+        <!--<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>-->
 
         <!--Popper JS--> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
@@ -85,7 +82,7 @@ and open the template in the editor.
             </a>
         </div>
 
-    <div class="w3-row w3-mobile">
+        <div class="w3-row w3-mobile">
             <form action="product_page.php" method="post">
                 <div class="w3-col" style="width:100%">
                     <input name="search_item" class="w3-input w3-border w3-leftbar w3-margin-top w3-margin-bottom" placeholder="SEARCH ITEM HERE" type="text">
@@ -107,9 +104,9 @@ and open the template in the editor.
                 <!--                <li data-target="#demo" data-slide-to="1"></li>
                                 <li data-target="#demo" data-slide-to="2"></li>-->
             </ul>
-            
-            <!--<img id="banner1" src="images/home_page_images/fm.jpg" alt="" style=""/>-->
-            
+
+<!--<img id="banner1" src="images/home_page_images/fm.jpg" alt="" style=""/>-->
+
             <!-- The featured -->
 
             <div class="w3">

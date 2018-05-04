@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <?php
-session_start()
+session_start();
 ?>
 <html lang="en">
-
     <!--head-->
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">-->
 
         <!--jQuery library--> 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
         <!--Popper JS--> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
 
         <!--Latest compiled JavaScript--> 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>-->
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -73,7 +72,6 @@ session_start()
 
 
         </script>
-
         <!--style-->
         <style>
             a {
@@ -85,6 +83,9 @@ session_start()
 
             #hidepls {
                 visibility: hidden;
+            }
+            #customer_logined_button {
+                font-weight: bold;
             }
         </style>
 
@@ -126,18 +127,15 @@ session_start()
             <a href="lucxury_webstore_login.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">MERCHANT LOGIN PORTAL</a>
             <!--<a href="lucxury_webstore_login.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">MERCHANT LOGIN PORTAL</a>-->
             <?php
-            if (isset($_SESSION['username'])) {
-                ?>
-                <script>
-                    $("#mySidebar").append("<p id='customer_login_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Hello, " + <?php echo $_SESSION['username'] ?> + "</p>");
-                    $("#mySidebar").append("<a href='customer_profile_update.php' id='customer_update_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Customer edit profile</a>");
-                        $("#mySidebar").append("<a href='do_customer_profile_logout.php' id='logout' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Logout</a>");
-                </script>
-            <?php } else { ?>
-                <script>
-                    $("#mySidebar").append("<a href='login_page.php' id='customer_login_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Customer login page</a>");
-                </script>
-            <?php } ?>
+            if (isset($_SESSION["username"])) {
+                echo "<br/>";
+                echo "<div id='customer_logined_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Hello, ".$_SESSION['username']."</div>";
+                echo "<a href='customer_profile_update.php' id='customer_update_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Customer edit profile</a>";
+                echo "<a href='do_customer_profile_logout.php' id='logout' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Logout</a>";
+            } else {
+                echo "<a href='login_page.php' id='customer_login_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Customer login page</a>";
+            }
+            ?>
         </div>
     </body>
 </html>
