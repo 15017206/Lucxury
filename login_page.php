@@ -109,7 +109,7 @@ and open the template in the editor.
                 <input required name="username" class="w3-input w3-text-black w3-small w3-center" type="text" placeholder="USERNAME" style="background: white">
                 <br/>
                 <input required name="password" class="w3-input w3-text-black w3-small w3-center" type="text" placeholder="PASSWORD" style="background: white">
-                <a href="" style="font-size: 80%; text-decoration:none">FORGOT PASSWORD?</a>
+                <a onclick="document.getElementById('id01').style.display = 'block'" style="font-size: 80%; text-decoration:none">FORGOT PASSWORD?</a>
                 <br/>
                 <br/>
                 <br/>
@@ -147,6 +147,25 @@ and open the template in the editor.
                     <a href="https://twitter.com/lucxuryglobal"><img id="" style="" src="images/templatebar_bottom_images/twitter.jpg" alt=""/></a>
                 </div>
             </form>
+
+            <!--Modal-->
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content">
+                    <div class="w3-container">
+                        <span onclick="document.getElementById('id01').style.display = 'none'" class="w3-button w3-display-topright">&times;</span>
+                        <p>Please enter your email and username</p>
+                        <form action="do_forget_password.php" method="post">
+                            <input class="w3-input" name="email" type="text" placeholder="Email:">
+                            <input class="w3-input" name="username" type="text" placeholder="Username:">
+
+                            <br/>
+                            <input type="submit" class="w3-button w3-border">
+                            <br/><br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--Modal End-->
         </div>
     </body>
 </html>
