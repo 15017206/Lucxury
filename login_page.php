@@ -4,11 +4,18 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+session_start();
+?>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title></title>
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -17,42 +24,69 @@ and open the template in the editor.
 
         <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
 
+
         <script>
-            function showMailing() {
-
-                require(["mojo/signup-forms/Loader"], function (L) {
-                    L.start({"baseUrl": "mc.us12.list-manage.com", "uuid": "5e744d54c978e566fa533d954", "lid": "ceb70c82f3"})
-
-                })
-                document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+            // This is called with the results from from FB.getLoginStatus().
+            function statusChangeCallback(response) {
+                console.log('statusChangeCallback');
+                // The response object is returned with a status field that lets the
+                // app know the current login status of the person.
+                // Full docs on the response object can be found in the documentation
+                // for FB.getLoginStatus().
+                if (response.status === 'connected') {
+                    // Logged into your app and Facebook.
+                    console.log(response);
+                    FB.api(
+                            '/me',
+                            'GET',
+                            {"fields": "id,name,about,address,age_range,birthday,email"},
+                            function (response) {
+                                // Insert your code here
+                                console.log(response);
+                            }
+                    );
+                } else {
+                    // The person is not logged into your app or we are unable to tell.
+                    console.log("Please login");
+                }
             }
 
-//            $(document).ready(function(){
-//               $("#subscribe1").onclick(function(){
-//                  alert("456");
-//                                  require(["mojo/signup-forms/Loader"], function (L) {
-//                    L.start({"baseUrl": "mc.us12.list-manage.com", "uuid": "5e744d54c978e566fa533d954", "lid": "ceb70c82f3"})
-//
-//                })
-//                document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-//                  alert("123");
-//               });
+            // This function is called when someone finishes with the Login
+            // Button.  See the onlogin handler attached to it in the sample
+            // code below.
+            function checkLoginState() {
+                FB.getLoginStatus(function (response) {
+                    statusChangeCallback(response);
+                });
+            }
 
-
-//            });
-
-            //Do not touch
             window.fbAsyncInit = function () {
                 FB.init({
-                    appId: '{your-app-id}',
+                    appId: '1447427822029147',
                     cookie: true,
                     xfbml: true,
-                    version: '{latest-api-version}'
+                    version: 'v3.0'
                 });
 
-                FB.AppEvents.logPageView();
+                // Now that we've initialized the JavaScript SDK, we call 
+                // FB.getLoginStatus().  This function gets the state of the
+                // person visiting this page and can return one of three states to
+                // the callback you provide.  They can be:
+                //
+                // 1. Logged into your app ('connected')
+                // 2. Logged into Facebook, but not your app ('not_authorized')
+                // 3. Not logged into Facebook and can't tell if they are logged into
+                //    your app or not.
+                //
+                // These three cases are handled in the callback function.
+
+                FB.getLoginStatus(function (response) {
+                    statusChangeCallback(response);
+                });
 
             };
+
+            // Load the SDK asynchronously
             (function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) {
@@ -63,22 +97,6 @@ and open the template in the editor.
                 js.src = "https://connect.facebook.net/en_US/sdk.js";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
-
-
-            FB.getLoginStatus(function (response) {
-                statusChangeCallback(response);
-            });
-
-            {
-                status: 'connected',
-                        authResponse: {
-                            accessToken: '...',
-                            expiresIn: '...',
-                            signedRequest: '...',
-                            userID: '...'
-                        }
-            }
-            // end of do not touch
         </script>
 
         <style>
@@ -89,19 +107,6 @@ and open the template in the editor.
         </style>
     </head>
     <body>
-        <!--Do not touch 2-->
-        <div id="fb-root"></div>
-        <script>(function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id))
-                    return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.0&appId=1447427822029147&autoLogAppEvents=1';
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));</script>
-        <!--End of do not touch 2-->
-
         <img id="banner1" src="images/login_page_images/loginbanner.jpg" alt="" style=""/>
         <div class="w3-container w3-center ">
             <br/>
@@ -109,7 +114,8 @@ and open the template in the editor.
                 <input required name="username" class="w3-input w3-text-black w3-small w3-center" type="text" placeholder="USERNAME" style="background: white">
                 <br/>
                 <input required name="password" class="w3-input w3-text-black w3-small w3-center" type="text" placeholder="PASSWORD" style="background: white">
-                <a onclick="document.getElementById('id01').style.display = 'block'" style="font-size: 80%; text-decoration:none">FORGOT PASSWORD?</a>
+                <!--<a onclick="document.getElementById('id01').style.display = 'block'" style="font-size: 80%; text-decoration:none">FORGOT PASSWORD?</a>-->
+
                 <br/>
                 <br/>
                 <br/>
@@ -125,7 +131,11 @@ and open the template in the editor.
                     </br>
                     <div class="w3-row">
                         <!--<a role="button" href="" class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:60%">LOGIN WITH FACEBOOK</a>-->
-                        <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+                        <!--<div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>-->
+
+                        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                        </fb:login-button>
+
                     </div>
                     </br>
                     <div class="w3-row">

@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <?php
 session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login_page.php");
+    die();
+}
+
 ?>
 <html lang="en">
     <!--head-->
