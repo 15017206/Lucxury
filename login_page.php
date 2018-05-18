@@ -42,7 +42,20 @@ session_start();
                             {"fields": "id,name,about,address,age_range,birthday,email"},
                             function (response) {
                                 // Insert your code here
-                                console.log(response);
+                                $.ajax({
+                                    type: "POST",
+                                    url: "fbDoAddSession.php",
+                                    data: {username: response.name},
+                                    cache: false,
+                                    dataType: "JSON",
+                                    success: function (response) {
+                                        alert(response);
+                                        window.location.replace("home_page.php");
+                                    },
+                                    error: function (obj, textStatus, errorThrown) {
+                                        console.log("Error " + textStatus + ": " + errorThrown);
+                                    }
+                                });
                             }
                     );
                 } else {
