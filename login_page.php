@@ -42,12 +42,13 @@ session_start();
                             {"fields": "id,name,about,address,age_range,birthday,email"},
                             function (response) {
                                 // Insert your code here
+                                var x = response.name+"";
                                 $.ajax({
-                                    type: "POST",
+                                    type: "GET",
                                     url: "fbDoAddSession.php",
-                                    data: {username: response.name},
+                                    data: {username: x},
                                     cache: false,
-                                    dataType: "JSON",
+//                                    dataType: "JSON",
                                     success: function (response) {
                                         alert(response);
                                         window.location.replace("home_page.php");
