@@ -6,6 +6,10 @@ and open the template in the editor.
 -->
 <?php
 session_start();
+if (isset($_SESSION['username'])) {
+    header('Location: home_page.php');
+    die();
+}
 ?>
 <html>
     <head>
@@ -40,29 +44,50 @@ session_start();
                             '/me',
                             'GET',
                             {"fields": "id,name,about,address,age_range,birthday,email"},
-                            function (response) {
+                            function (response3) {
                                 // Insert your code here
-                                var x = response.name+"";
-                                $.ajax({
-                                    type: "GET",
-                                    url: "fbDoAddSession.php",
-                                    data: {username: x},
-                                    cache: false,
-//                                    dataType: "JSON",
-                                    success: function (response) {
-                                        alert(response);
-                                        window.location.replace("home_page.php");
-                                    },
-                                    error: function (obj, textStatus, errorThrown) {
-                                        console.log("Error " + textStatus + ": " + errorThrown);
-                                    }
-                                });
+                                var x = response3.name + "";
+                                addToDatabaseFromFBLogin(response3.id, response3.email, response3.name);
+
                             }
                     );
                 } else {
                     // The person is not logged into your app or we are unable to tell.
                     console.log("Please login");
                 }
+            }
+
+            function addToDatabaseFromFBLogin(userID, userEmail, userName) {
+                alert(userID + userEmail + userName);
+                $.ajax({
+                    type: "POST",
+                    url: "Webservices/addIDEmailNameToDB.php",
+                    data: {user_fb_id: userID, user_email: userEmail, username: userName},
+                    cache: false,
+                    dataType: "JSON",
+                    success: function (response) {
+                        alert(response.result);
+
+                        $.ajax({
+                            type: "GET",
+                            url: "fbDoAddSession.php",
+                            data: {username: userName},
+                            cache: false,
+//                                    dataType: "JSON",
+                            success: function (response2) {
+                                alert(response2);
+                                location.reload();
+
+                            },
+                            error: function (obj, textStatus, errorThrown) {
+                                console.log("Error " + textStatus + ": " + errorThrown);
+                            }
+                        });
+                    },
+                    error: function (obj, textStatus, errorThrown) {
+                        console.log("Error " + textStatus + ":: " + errorThrown);
+                    }
+                });
             }
 
             // This function is called when someone finishes with the Login
@@ -97,7 +122,6 @@ session_start();
                 FB.getLoginStatus(function (response) {
                     statusChangeCallback(response);
                 });
-
             };
 
             // Load the SDK asynchronously
