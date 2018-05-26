@@ -151,8 +151,8 @@ if (isset($_SESSION['username'])) {
             <form method="post" action="do_customer_profile_login.php">
                 <input required name="username" class="w3-input w3-text-black w3-small w3-center" type="text" placeholder="USERNAME" style="background: white">
                 <br/>
-                <input required name="password" class="w3-input w3-text-black w3-small w3-center" type="text" placeholder="PASSWORD" style="background: white">
-                <!--<a onclick="document.getElementById('id01').style.display = 'block'" style="font-size: 80%; text-decoration:none">FORGOT PASSWORD?</a>-->
+                <input required name="password" class="w3-input w3-text-black w3-small w3-center" type="password" placeholder="PASSWORD" style="background: white">
+                <a onclick="document.getElementById('id01').style.display = 'block'" style="font-size: 80%; text-decoration:none">FORGOT PASSWORD?</a>
 
                 <br/>
                 <br/>

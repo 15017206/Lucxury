@@ -123,7 +123,8 @@ if (!isset($_SESSION['username'])) {
             <a href="home_page.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">HOME</a>
             <!--<a href="profile.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">PROFILE</a>-->
             <!--<a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">PROMOTION</a>-->
-            <a href="news.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">NEWS</a>
+            <a href="https://lucxury.com/wp/" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">NEWS/MEDIA</a>
+            <a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">PROMOTION</a>
             <a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">HOW TO USE</a>
             <!--<a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">SETTINGS</a>-->
             <a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">FAQ</a>
@@ -141,8 +142,8 @@ if (!isset($_SESSION['username'])) {
                 if (isset($_SESSION["username"])) {
                     echo "<br/>";
                     echo "<div id='customer_logined_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Hello, " . $_SESSION['username'] . "</div>";
-                    echo "<a href='customer_profile_update.php' id='customer_update_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Customer edit profile</a>";
-                    echo "<a href='do_customer_profile_logout.php' id='logout' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Logout</a>";
+                    echo "<a href='customer_profile_update.php' id='customer_update_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>CUSTOMER EDIT PROFILE</a>";
+                    echo "<a href='do_customer_profile_logout.php' id='logout' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>LOGOUT</a>";
                 } else {
                     echo "<a href='login_page.php' id='customer_login_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Customer login page</a>";
                 }
