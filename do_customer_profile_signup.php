@@ -23,7 +23,7 @@ if ($result) {
 } else {
     $response["result"] = "fail";
 }
-echo json_encode($response);
+//echo json_encode($response);
 mysqli_close($link);
 ?>
 <html>
@@ -41,6 +41,6 @@ mysqli_close($link);
         </script>
     </head>
     <body>
-        <p>Please wait while the page redirects...</p>
+        <!--<p>Please wait while the page redirects...</p>-->
     </body>
 </html>

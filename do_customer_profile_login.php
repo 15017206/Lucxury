@@ -28,7 +28,7 @@ if (mysqli_num_rows($result) > 0) {
     </head>
     <body>
         <?php
-        echo $msg;
+        //echo $msg;
         ?>
     </body>
 </html>
