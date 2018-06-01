@@ -99,7 +99,7 @@ if (mysqli_num_rows($result) > 0) {
     <body>
         <div class="container">
             <form method="post" action="do_customer_profile_update.php">
-                <p>Hi, <?php echo $username; ?> and your ID is <?php echo $user_id ?></p>
+                <p>Hi, <?php echo $username; ?></p>
 
                 <input type="hidden" name="user_id" id="user_id" value="<?php echo $user_id ?>">
                 <!--email-->

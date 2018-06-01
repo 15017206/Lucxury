@@ -133,18 +133,18 @@ and open the template in the editor.
                 </div>
 
                 <!--nric-->
-                <div class="form-group">
+<!--                <div class="form-group">
                     <label for="nric">NRIC</label>
                     <input type="text" class="form-control" name="nric" id="nric" required aria-describedby="nricHelp" placeholder="">
                     <small id="nricHelp" class="form-text text-muted">e.g. T6349559I</small>
-                </div>
+                </div>-->
 
                 <!--dob-->
-                <div class="form-group">
+<!--                <div class="form-group">
                     <label for="dob">DATE OF BIRTH</label>
                     <input type="date" class="form-control" name="dob" id="dob" required aria-describedby="dobHelp" placeholder="">
                     <small id="dobHelp" class="form-text text-muted"></small>
-                </div>
+                </div>-->
 
                 <!--gender-->
                 <div class="form-group">
@@ -163,18 +163,18 @@ and open the template in the editor.
                 </div>
 
                 <!--postal code-->
-                <div class="form-group">
+<!--                <div class="form-group">
                     <label for="postal_code">POSTAL CODE</label>
                     <input type="number" class="form-control" name="postal_code" required id="postal_code" aria-describedby="postal_codeHelp" placeholder="">
                     <small id="postal_codeHelp" class="form-text text-muted">Your Postal Code will be kept confidential</small>
-                </div>
+                </div>-->
 
                 <!--home address-->
-                <div class="form-group">
+<!--                <div class="form-group">
                     <label for="home_address">HOME ADDRESS</label>
                     <input type="text" class="form-control" name="home_address" required id="home_address" aria-describedby="home_addressHelp" placeholder="">
                     <small id="home_addressHelp" class="form-text text-muted">Your Home Address will be kept confidential</small>
-                </div>
+                </div>-->
 
                 <!--country-->
                 <div class="form-group">

@@ -119,7 +119,17 @@ if (!isset($_SESSION['username'])) {
         <!-- Sidebar -->
         <div class="w3-sidebar w3-bar-block w3-border-right w3-animate-left"style="display:none" id="mySidebar">
             <button onclick="w3_close()" class="w3-bar-item w3-large"></button>
-
+            <?php
+            if (!isset($_SESSION['user_id'])) {
+                echo "<br/>";
+                echo "<div id='customer_logined_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Hello, " . $_SESSION['username'] . "</div>";
+            } else {
+                if (isset($_SESSION["username"])) {
+                    echo "<br/>";
+                    echo "<div id='customer_logined_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Hello, " . $_SESSION['username'] . "</div>";
+                }
+            }
+            ?>
             <a href="home_page.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">HOME</a>
             <!--<a href="profile.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">PROFILE</a>-->
             <!--<a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">PROMOTION</a>-->
@@ -135,13 +145,13 @@ if (!isset($_SESSION['username'])) {
             <?php
             if (!isset($_SESSION['user_id'])) {
                 echo "<br/>";
-                echo "<div id='customer_logined_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Hello, " . $_SESSION['username'] . "</div>";
+//                echo "<div id='customer_logined_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Hello, " . $_SESSION['username'] . "</div>";
                 echo "You have logged in via facebook.";
                 echo "<a href='do_customer_profile_logout.php' id='logout' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Logout</a>";
             } else {
                 if (isset($_SESSION["username"])) {
                     echo "<br/>";
-                    echo "<div id='customer_logined_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Hello, " . $_SESSION['username'] . "</div>";
+//                    echo "<div id='customer_logined_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Hello, " . $_SESSION['username'] . "</div>";
                     echo "<a href='customer_profile_update.php' id='customer_update_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>CUSTOMER EDIT PROFILE</a>";
                     echo "<a href='do_customer_profile_logout.php' id='logout' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>LOGOUT</a>";
                 } else {
