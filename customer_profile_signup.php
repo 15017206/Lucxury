@@ -32,30 +32,34 @@ and open the template in the editor.
 
             function checkExistingUsername() {
                 $("#username").blur(function () {
-                    var username = $("#username").val();
-                    $.ajax({
-                        type: "GET",
-                        url: "Webservices/checkExistingUsername.php",
-                        data: {username: username},
-                        cache: false,
-//                        dataType: "JSON",
-                        success: function (response) {
-                            if (response == "no username found") {
-                                $('#username').attr('class', 'form-control is-valid');
-                                $('#username_output').attr('class', 'valid-feedback');
-                                $('#username_output').text(username + " is available.");
-                            } else {
-                                $('#username').attr('class', 'form-control is-invalid');
-                                $('#username_output').attr('class', 'invalid-feedback');
-                                $('#username_output').text(username + " has been taken. Please choose another.");
-                            }
 
-                        },
-                        error: function (obj, textStatus, errorThrown) {
-                            console.log("Error " + textStatus + ": " + errorThrown);
-                            alert("fail lah");
-                        }
-                    });
+                    if ($("#username").val() != "") {
+                        var username = $("#username").val();
+                        $.ajax({
+                            type: "GET",
+                            url: "Webservices/checkExistingUsername.php",
+                            data: {username: username},
+                            cache: false,
+//                        dataType: "JSON",
+                            success: function (response) {
+                                if (response == "no username found") {
+                                    $('#username').attr('class', 'form-control is-valid');
+                                    $('#username_output').attr('class', 'valid-feedback');
+                                    $('#username_output').text(username + " is available.");
+                                } else {
+                                    $('#username').attr('class', 'form-control is-invalid');
+                                    $('#username_output').attr('class', 'invalid-feedback');
+                                    $('#username_output').text(username + " has been taken. Please choose another.");
+                                }
+
+                            },
+                            error: function (obj, textStatus, errorThrown) {
+                                console.log("Error " + textStatus + ": " + errorThrown);
+                            }
+                        });
+                    }
+
+
                 });
 
 
