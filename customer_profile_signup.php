@@ -7,12 +7,15 @@ and open the template in the editor.
 
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
         <title></title>
         <?php include 'scripts/bootstrap_scripts/bootstrap_scripts.php'; ?>
         <script>
+
+
             $(document).ready(function () {
                 postalCode_blur();
+                checkExistingUsername();
             });
             function postalCode_blur() {
                 var address1 = "";
@@ -25,6 +28,37 @@ and open the template in the editor.
                         $("#home_address").val("");
                     }
                 });
+            }
+
+            function checkExistingUsername() {
+                $("#username").blur(function () {
+                    var username = $("#username").val();
+                    $.ajax({
+                        type: "GET",
+                        url: "Webservices/checkExistingUsername.php",
+                        data: {username: username},
+                        cache: false,
+//                        dataType: "JSON",
+                        success: function (response) {
+                            if (response == "no username found") {
+                                $('#username').attr('class', 'form-control is-valid');
+                                $('#username_output').attr('class', 'valid-feedback');
+                                $('#username_output').text(username + " is available.");
+                            } else {
+                                $('#username').attr('class', 'form-control is-invalid');
+                                $('#username_output').attr('class', 'invalid-feedback');
+                                $('#username_output').text(username + " has been taken. Please choose another.");
+                            }
+
+                        },
+                        error: function (obj, textStatus, errorThrown) {
+                            console.log("Error " + textStatus + ": " + errorThrown);
+                            alert("fail lah");
+                        }
+                    });
+                });
+
+
             }
 
             function getAddressAndCountry(postalCode) {
@@ -70,6 +104,7 @@ and open the template in the editor.
                     <label for="username">USERNAME</label>
                     <input type="text" class="form-control" name="username" id="username" aria-describedby="usernameHelp" required placeholder="">
                     <small id="usernameHelp" class="form-text text-muted">Choose your username carefully. It cannot be changed once created.</small>
+                    <small id="username_output" class=""></small>
                 </div>
 
                 <!--password-->

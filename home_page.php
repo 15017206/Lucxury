@@ -59,13 +59,25 @@ and open the template in the editor.
             <!-- Indicators -->
             <ul class="carousel-indicators">
                 <li data-target="#demo" data-slide-to="0" class="active"></li>
-                <!--                <li data-target="#demo" data-slide-to="1"></li>
-                                <li data-target="#demo" data-slide-to="2"></li>-->
+                <li data-target="#demo" data-slide-to="1" class="active"></li>
+                <li data-target="#demo" data-slide-to="2" class="active"></li>
             </ul>
 
             <!-- The slideshow -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
+                    <a href=""><img id="banner1" src="images/home_page_images/es.jpg" alt=""/></a>
+                    <div class="carousel-caption">
+                        <h3></h3>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <a href=""><img id="banner1" src="images/home_page_images/es.jpg" alt=""/></a>
+                    <div class="carousel-caption">
+                        <h3></h3>
+                    </div>
+                </div>
+                <div class="carousel-item">
                     <a href=""><img id="banner1" src="images/home_page_images/es.jpg" alt=""/></a>
                     <div class="carousel-caption">
                         <h3></h3>
