@@ -13,8 +13,8 @@ $postal_code = $_POST["postal_code"];
 $home_address = $_POST["home_address"];
 $country = $_POST["country"];
 
-$query = "INSERT INTO `user`(`email`, `username`, `password`, `first_name`, `last_name`, `nric`, `country`, `dob`, `gender`, `address`, `postal_code`) " .
-        "VALUES ('$email', '$username',SHA1('$password'), '$first_name','$last_name', '$nric','$country','$dob','$gender', '$home_address','$postal_code')";
+$query = "INSERT INTO `user`(`email`, `username`, `password`,`user_type`, `first_name`, `last_name`, `nric`, `country`, `dob`, `gender`, `address`, `postal_code`) " .
+        "VALUES ('$email', '$username',SHA1('$password'),'admin', '$first_name','$last_name', '$nric','$country','$dob','$gender', '$home_address','$postal_code')";
 
 $result = mysqli_query($link, $query);
 

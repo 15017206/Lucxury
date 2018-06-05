@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <?php
 session_start();
+        $ipaddress = '';
+// Function to get the client ip address
+function get_client_ip_env() {
+
+    if (getenv('HTTP_CLIENT_IP'))
+        $ipaddress = getenv('HTTP_CLIENT_IP');
+    else if(getenv('HTTP_X_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+    else if(getenv('HTTP_X_FORWARDED'))
+        $ipaddress = getenv('HTTP_X_FORWARDED');
+    else if(getenv('HTTP_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_FORWARDED_FOR');
+    else if(getenv('HTTP_FORWARDED'))
+        $ipaddress = getenv('HTTP_FORWARDED');
+    else if(getenv('REMOTE_ADDR'))
+        $ipaddress = getenv('REMOTE_ADDR');
+    else
+        $ipaddress = 'UNKNOWN';
+ 
+    return $ipaddress;
+}
 
 if (!isset($_SESSION['username'])) {
     header("Location: login_page.php");
@@ -54,6 +75,11 @@ if (!isset($_SESSION['username'])) {
 
                 if (Notification.permission !== "granted")
                     Notification.requestPermission();
+            });
+
+            $(document).ready(function () {
+                var x = '<?php echo get_client_ip_env(); ?>';
+                console.log(x);
             });
 
             function notifyMe() {
@@ -142,7 +168,11 @@ if (!isset($_SESSION['username'])) {
             <a href="lucxury_webstore_login.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">MERCHANT LOGIN PORTAL</a>
             <!--<a href="lucxury_webstore_login.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">MERCHANT LOGIN PORTAL</a>-->
             <!--if $_SESSION user_id is not set, means its facebook login-->
+            <br/>
             <?php
+            if ($_SESSION["user_type"] == "admin") {
+                echo "<a href='admin_dashboard.php' id='logout' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>ADMIN DASHBOARD</a>";
+            }
             if (!isset($_SESSION['user_id'])) {
                 echo "<br/>";
 //                echo "<div id='customer_logined_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Hello, " . $_SESSION['username'] . "</div>";
