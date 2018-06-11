@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include './dbconn.php';
 $item_id = $_GET["item_id"];
@@ -25,21 +26,27 @@ $itemfilter_image_url = $item["itemfilter_image_url"];
 
 // 2. check if there is item id in item table. If there isnt, then add it
 
-$query2 = "INSERT INTO `item` VALUES ('$itemfilter_id', '$merchant_id', '$itemfilter_name', '$itemfilter_price_currency', '$itemfilter_price_amount', '$itemfilter_brand', '$itemfilter_color', '$itemfilter_condition', '$itemfilter_category', '$itemfilter_more_info_url', '$itemfilter_image_url');";
-$result2 = mysqli_query($link, $query2);
+$query1b = "SELECT * FROM `item_click` WHERE `item_id`='$item_id'";
+$result1b = mysqli_query($link, $query1b);
+
+while (!$row1b = mysqli_fetch_assoc($result1b)) {
+    $item1b = $row1b["item_id"];
+
+    $query2 = "INSERT INTO `item_click` VALUES ('$itemfilter_id', '$merchant_id', '$itemfilter_name', '$itemfilter_price_currency', '$itemfilter_price_amount', '$itemfilter_brand', '$itemfilter_color', '$itemfilter_condition', '$itemfilter_category', '$itemfilter_more_info_url', '$itemfilter_image_url');";
+    $result2 = mysqli_query($link, $query2);
+}
 
 // 3. add the clicks to the click table - with the item_id, click datetime, click ip address
 
-$queryTimeAndDate = "SELECT NOW() as `now`";
-$result6 = mysqli_query($link, $queryTimeAndDate);
-$row = $result6->fetch_array();
-$now = $row['now'];
+    $queryTimeAndDate = "SELECT NOW() as `now`";
+    $result6 = mysqli_query($link, $queryTimeAndDate);
+    $row = $result6->fetch_array();
+    $now = $row['now'];
 
 $user_id = $_SESSION['user_id'];
 
 $query3 = "INSERT INTO `click` (`item_id`,`user_id`, `click_datetime`) VALUES ('$itemfilter_id', '$user_id', '$now')";
 $result3 = mysqli_query($link, $query3);
 
-mysqli_close($link);
-//echo json_encode($students);
-//echo json_encode($item3);
+    mysqli_close($link);
+    echo json_encode($item1b);

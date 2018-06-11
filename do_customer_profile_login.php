@@ -14,10 +14,9 @@ if (mysqli_num_rows($result) > 0) {
     $_SESSION["username"] = $row['username'];
     $_SESSION["user_type"] = $row['user_type'];
 
-    $msg = "hello. Please wait while the webpage redirects...";
+    $msg = "<img src='https://eduzon.co/wp-content/uploads/2018/04/welcome-featured-image.jpg'>";
 } else {
-    $msg = "<p>Sorry, you must enter a valid username 
-                and password to log in. <a href='login_page.php'>Back to Login Page</a></p>";
+    $msg = "<img src='https://images.drivereasy.com/wp-content/uploads/2017/10/img_59e6d500051c8.png'>";
 }
 ?>
 <html>
@@ -29,7 +28,7 @@ if (mysqli_num_rows($result) > 0) {
     </head>
     <body>
         <?php
-        //echo $msg;
+        echo $msg;
         ?>
     </body>
 </html>

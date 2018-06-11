@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <?php
 session_start();
-        $ipaddress = '';
+$ipaddress = '';
+
 // Function to get the client ip address
 function get_client_ip_env() {
 
     if (getenv('HTTP_CLIENT_IP'))
         $ipaddress = getenv('HTTP_CLIENT_IP');
-    else if(getenv('HTTP_X_FORWARDED_FOR'))
+    else if (getenv('HTTP_X_FORWARDED_FOR'))
         $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
-    else if(getenv('HTTP_X_FORWARDED'))
+    else if (getenv('HTTP_X_FORWARDED'))
         $ipaddress = getenv('HTTP_X_FORWARDED');
-    else if(getenv('HTTP_FORWARDED_FOR'))
+    else if (getenv('HTTP_FORWARDED_FOR'))
         $ipaddress = getenv('HTTP_FORWARDED_FOR');
-    else if(getenv('HTTP_FORWARDED'))
+    else if (getenv('HTTP_FORWARDED'))
         $ipaddress = getenv('HTTP_FORWARDED');
-    else if(getenv('REMOTE_ADDR'))
+    else if (getenv('REMOTE_ADDR'))
         $ipaddress = getenv('REMOTE_ADDR');
     else
         $ipaddress = 'UNKNOWN';
- 
+
     return $ipaddress;
 }
 
@@ -147,11 +148,9 @@ if (!isset($_SESSION['username'])) {
             <button onclick="w3_close()" class="w3-bar-item w3-large"></button>
             <?php
             if (!isset($_SESSION['user_id'])) {
-                echo "<br/>";
                 echo "<div id='customer_logined_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Hello, " . $_SESSION['username'] . "</div>";
             } else {
                 if (isset($_SESSION["username"])) {
-                    echo "<br/>";
                     echo "<div id='customer_logined_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Hello, " . $_SESSION['username'] . "</div>";
                 }
             }
@@ -165,14 +164,25 @@ if (!isset($_SESSION['username'])) {
             <!--<a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">SETTINGS</a>-->
             <a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">FAQ</a>
             <!--<a href="index.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">LOGOUT</a>-->
-            <a href="lucxury_webstore_login.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">MERCHANT LOGIN PORTAL</a>
-            <!--<a href="lucxury_webstore_login.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">MERCHANT LOGIN PORTAL</a>-->
+            <?php
+            if ($_SESSION["user_type"] == "merchant") {
+                echo '<a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">MERCHANT DASHBOARD</a>';
+            }
+            ?>
+            
             <!--if $_SESSION user_id is not set, means its facebook login-->
             <br/>
             <?php
             if ($_SESSION["user_type"] == "admin") {
                 echo "<a href='admin_dashboard.php' id='logout' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>ADMIN DASHBOARD</a>";
+            } else if ($_SESSION["user_type"] == "merchant"){
+                echo "<a href='lucxury_webstore_main.php' id='logout' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>UPLOAD PRODUCTS</a>";
             }
+            
+            
+            
+            
+            
             if (!isset($_SESSION['user_id'])) {
                 echo "<br/>";
 //                echo "<div id='customer_logined_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Hello, " . $_SESSION['username'] . "</div>";

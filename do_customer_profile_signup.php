@@ -14,7 +14,7 @@ $home_address = $_POST["home_address"];
 $country = $_POST["country"];
 
 $query = "INSERT INTO `user`(`email`, `username`, `password`,`user_type`, `first_name`, `last_name`, `nric`, `country`, `dob`, `gender`, `address`, `postal_code`) " .
-        "VALUES ('$email', '$username',SHA1('$password'),'user', '$first_name','$last_name', '$nric','$country','$dob','$gender', '$home_address','$postal_code')";
+        "VALUES ('$email', '$username',SHA1('$password'),'user', '$first_name','$last_name',NULL , '$country', NULL,'$gender', NULL, NULL)";
 
 $result = mysqli_query($link, $query);
 
