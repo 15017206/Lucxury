@@ -1,7 +1,7 @@
 
 $.ajax({
     type: "GET",
-    url: "https://svcs.ebay.com/services/search/FindingService/v1?" + "SECURITY-APPNAME=" + "GlennYeo-Software-PRD-35d705b3d-b15b0374" + "&OPERATION-NAME=" + "findItemsByKeywords" + "&SERVICE-VERSION=" + "1.0.0" + "&RESPONSE-DATA-FORMAT=" + "JSON" + "&keywords=" + search_item + "&paginationInput.entriesPerPage=" + "50" + "&GLOBAL-ID=" + "EBAY-SG" + "&paginationInput.pageNumber=" + "1",
+    url: "https://svcs.ebay.com/services/search/FindingService/v1?" + "SECURITY-APPNAME=" + "GlennYeo-Software-PRD-35d705b3d-b15b0374" + "&OPERATION-NAME=" + "findItemsByKeywords" + "&SERVICE-VERSION=" + "1.0.0" + "&RESPONSE-DATA-FORMAT=" + "JSON" + "&keywords=" + search_item + "&paginationInput.entriesPerPage=" + "3" + "&GLOBAL-ID=" + "EBAY-SG" + "&paginationInput.pageNumber=" + "1",
     cache: false,
     dataType: "JSONP",
 
