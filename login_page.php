@@ -153,7 +153,8 @@ if (isset($_SESSION['username'])) {
                 <br/>
                 <input required name="password" class="w3-input w3-text-black w3-small w3-center" type="password" placeholder="PASSWORD" style="background: white">
                 <a onclick="document.getElementById('id01').style.display = 'block'" style="font-size: 80%; text-decoration:none">FORGOT PASSWORD?</a>
-
+                <br/>
+                <small><a href="merchant_dashboard_login.php">Merchant login</a></small>
                 <br/>
                 <br/>
                 <br/>

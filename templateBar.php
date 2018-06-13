@@ -79,8 +79,14 @@ if (!isset($_SESSION['username'])) {
             });
 
             $(document).ready(function () {
-                var x = '<?php echo get_client_ip_env(); ?>';
-                console.log(x);
+                var ip_address = '<?php echo get_client_ip_env(); ?>';
+                var user_id = '<?php echo $_SESSION["user_id"]; ?>';
+                var username = '<?php echo $_SESSION["username"]; ?>';
+                var user_type = '<?php echo $_SESSION["user_type"]; ?>';
+                console.log("ip address: " + ip_address);
+                console.log("user id: " + user_id);
+                console.log("username: " + username);
+                console.log("user type: " + user_type);
             });
 
             function notifyMe() {

@@ -26,7 +26,7 @@ and open the template in the editor.
                 })
                 document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
             }
-            
+
 //            $(document).ready(function(){
 //               $("#subscribe1").onclick(function(){
 //                  alert("456");
@@ -37,8 +37,8 @@ and open the template in the editor.
 //                document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 //                  alert("123");
 //               });
-               
-               
+
+
 //            });
         </script>
 
@@ -59,14 +59,14 @@ and open the template in the editor.
                 color: white;
             }
 
-/*            ::placeholder {  Chrome, Firefox, Opera, Safari 10.1+ 
-                color: white;
-                opacity: 1;  Firefox 
-            }
-
-            :-ms-input-placeholder {  Internet Explorer 10-11 
-                color: white;
-            }*/
+            /*            ::placeholder {  Chrome, Firefox, Opera, Safari 10.1+ 
+                            color: white;
+                            opacity: 1;  Firefox 
+                        }
+            
+                        :-ms-input-placeholder {  Internet Explorer 10-11 
+                            color: white;
+                        }*/
         </style>
     </head>
     <body>
@@ -75,21 +75,22 @@ and open the template in the editor.
             <img src="images/login_page_images/Lucxury Website (Logo) 1.png" alt="" style="max-width: 80%;"/>
             <h3 style="word-wrap: normal; font-size: 3vw;"><b>MERCHANT'S LOGIN PORTAL</b></h3>
             <br/>
-            <form>
-                <input class="w3-input w3-text-white w3-small" type="text" placeholder="USERNAME" style="background: transparent">
+            <form method="post" action="Webservices/do_merchant_login.php">
+                <input required class="w3-input w3-text-white w3-small" name="username" type="text" placeholder="USERNAME" style="background: transparent">
                 <br/>
-                <input class="w3-input w3-text-white w3-small" type="text" placeholder="PASSWORD" style="background: transparent">
-                <a href="" style="font-size: 80%; text-decoration:none">FORGOT PASSWORD?</a>
+                <input required class="w3-input w3-text-white w3-small" name="password" type="password" placeholder="PASSWORD" style="background: transparent">
+                <!--<a href="" style="font-size: 80%; text-decoration:none">FORGOT PASSWORD?</a>-->
                 <br/>
                 <br/>
                 <br/>
                 <div class="w3-row">
                     <div class="w3-half w3-container">
-                        <a role="button" href="home_page.php" class="w3-block w3-btn w3-white" style="opacity: 0.8;">LOGIN</a>
+                        <input type="submit" class="w3-block w3-btn w3-white" style="opacity: 0.8;">
                     </div>
                 </div>
+            </form>
         </div>
-    </form>
-</div>
+
+    </div>
 </body>
 </html>
