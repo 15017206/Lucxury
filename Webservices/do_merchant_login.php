@@ -22,7 +22,7 @@ if (mysqli_num_rows($result) > 0) {
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="refresh" content="2; URL=../merchant_product_upload.php">
+        <meta http-equiv="refresh" content="1; URL=../merchant_product_upload.php">
         <meta name="keywords" content="automatic redirection">
         <title></title>
     </head>

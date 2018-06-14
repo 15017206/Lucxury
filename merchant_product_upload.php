@@ -4,6 +4,12 @@
     <head>
         <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
         <title></title>
+        <style>
+            img {
+                height: 100px;
+                width: 100px;
+            }
+        </style>
 
         <?php
         session_start();
@@ -28,27 +34,33 @@
                 $.ajax({
                     type: "GET",
                     url: "Webservices/getMerchantsProductsByMerchantId.php",
-                    data: {merchant_id: "1"},
+                    data: {merchant_id: merchant_id},
                     cache: false,
                     dataType: "JSON",
                     success: function (response) {
                         console.log(response);
-                        for (var i = 0; i < response.length; i++) {
-                            $("#some_container").append(
-                                    '<tr>' +
-                                    '<th scope="row">' + response[i]['item_storage_id'] + '</th>' +
-                                    '<td>' + response[i]['itemstorage_name'] + '</td>' +
-                                    '<td>' + response[i]['itemstorage_price_currency'] + '</td>' +
-                                    '<td>' + response[i]['itemstorage_price_amount'] + '</td>' +
-                                    '<td>' + response[i]['itemstorage_brand'] + '</td>' +
-                                    '<td>' + response[i]['itemstorage_color'] + '</td>' +
-                                    '<td>' + response[i]['itemstorage_condition'] + '</td>' +
-                                    '<td>' + response[i]['merchant_name'] + '</td>' +
-                                    '<td>' + response[i]['itemstorage_more_info_url'] + '</td>' +
-                                    '<td>' + response[i]['itemstorage_image_url'] + '</td>' +
-                                    '</tr>' +
-                                    '</tbody>' +
-                                    '</table>')
+                        if (!response) {
+                            $("#some_container").html("Sorry, No products here");
+                        } else {
+
+                            for (var i = 0; i < response.length; i++) {
+
+                                $("#some_container").append(
+                                        '<tr>' +
+                                        '<th scope="row">' + response[i]['item_storage_id'] + '</th>' +
+                                        '<td>' + response[i]['itemstorage_name'] + '</td>' +
+                                        '<td>' + response[i]['itemstorage_price_currency'] + '</td>' +
+                                        '<td>' + response[i]['itemstorage_price_amount'] + '</td>' +
+                                        '<td>' + response[i]['itemstorage_brand'] + '</td>' +
+                                        '<td>' + response[i]['itemstorage_color'] + '</td>' +
+                                        '<td>' + response[i]['itemstorage_condition'] + '</td>' +
+                                        '<td>' + response[i]['merchant_name'] + '</td>' +
+                                        '<td>' + response[i]['itemstorage_more_info_url'] + '</td>' +
+                                        "<td><img src='" + response[i]['itemstorage_image_url'] + "'></td>" +
+                                        '</tr>' +
+                                        '</tbody>' +
+                                        '</table>')
+                            }
                         }
                     },
                     error: function (obj, textStatus, errorThrown) {
@@ -90,7 +102,7 @@
 
 
         <div class="container">
-            <form method="post" action="do_merchant_product_upload.php">
+            <form method="post" action="do_merchant_product_upload.php" enctype="multipart/form-data">
                 <h1 align="center">Product Upload</h1>
 
                 <!--merchant-->
@@ -149,7 +161,7 @@
                 <!--image_upload-->
                 <div class="form-group">
                     <label for="image">IMAGE</label>
-                    <input type="text" class="form-control" name="image" id="image" required placeholder="">
+                    <input type="file" accept="image/*" class="form-control" name="fileToUpload" id="fileToUpload" required placeholder="">
                 </div>
 
                 <button type="submit" class="btn btn-primary" style="width:20%">UPLOAD</button>
