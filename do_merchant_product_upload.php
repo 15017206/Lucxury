@@ -38,12 +38,6 @@ if ($uploadOk == 0) {
     }
 }
 
-
-
-
-
-
-
 $query = "INSERT INTO `item_storage`(`merchant_id`, `itemstorage_name`, `itemstorage_price_currency`,`itemstorage_price_amount`, `itemstorage_brand`, `itemstorage_color`, `itemstorage_condition`, `itemstorage_category`, `itemstorage_more_info_url`, `itemstorage_image_url`) " .
         "VALUES ('$merchant_id', '$productname', 'SGD', '$price', '$brand', '$color', '$condition', NULL, '$url', '$target_file')";
 
@@ -56,19 +50,6 @@ if ($result) {
 }
 //echo json_encode($response);
 mysqli_close($link);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ?>
 <html>

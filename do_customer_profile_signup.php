@@ -6,15 +6,15 @@ $username = $_POST["username"];
 $password = $_POST["password"];
 $first_name = $_POST["first_name"];
 $last_name = $_POST["last_name"];
-$nric = $_POST["nric"];
-$dob = $_POST["dob"];
+//$nric = $_POST["nric"];
+//$dob = $_POST["dob"];
 $gender = $_POST["gender"];
-$postal_code = $_POST["postal_code"];
-$home_address = $_POST["home_address"];
+//$postal_code = $_POST["postal_code"];
+//$home_address = $_POST["home_address"];
 $country = $_POST["country"];
 
 $query = "INSERT INTO `user`(`email`, `username`, `password`,`user_type`, `first_name`, `last_name`, `nric`, `country`, `dob`, `gender`, `address`, `postal_code`) " .
-        "VALUES ('$email', '$username',SHA1('$password'),'user', '$first_name','$last_name',null , '$country', '$dob','$gender', '$home_address', '$postal_code')";
+        "VALUES ('$email', '$username',SHA1('$password'),'user', '$first_name','$last_name',null , '$country', null,'$gender', null, null)";
 
 $result = mysqli_query($link, $query);
 

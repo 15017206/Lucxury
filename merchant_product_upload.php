@@ -121,40 +121,52 @@
                 <div class="form-group">
                     <label for="productname">PRODUCT NAME</label>
                     <input type="text" class="form-control" name="productname" id="productname" aria-describedby="productnameHelp" required placeholder="">
-                    <small id="productnameHelp" class="form-text text-muted">Describe your product</small>
+                    <small id="productnameHelp" class="form-text text-muted">Product Model</small>
                     <small id="username_output" class=""></small>
                 </div>
 
                 <!--price-->
                 <div class="form-group">
                     <label for="price">PRICE</label>
-                    <input type="text" class="form-control" name="price" id="price" aria-describedby="priceHelp" required placeholder="">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">$</div>
+                        </div>
+                        <input type="text" class="form-control" name="price" id="price" aria-describedby="priceHelp" required placeholder="">
+                    </div>
                     <small id="priceHelp" class="form-text text-muted">Price in SGD e.g $399.00</small>
                     <small id="username_output" class=""></small>
                 </div>
-
                 <!--brand-->
                 <div class="form-group">
                     <label for="brand">BRAND</label>
-                    <input type="text" class="form-control" name="brand" id="brand" required placeholder="">
+                    <!--<input type="text" class="form-control" name="brand" id="brand" required placeholder="">-->
+                    <select class="form-control">
+                    </select>
                 </div>
 
                 <!--brand-->
                 <div class="form-group">
                     <label for="color">COLOR</label>
-                    <input type="text" class="form-control" name="color" id="color" required placeholder="">
-                </div>
+                    <!--<input type="text" class="form-control" name="color" id="color" required placeholder="">-->
+                    <select class="form-control">
 
+                    </select>
+                </div>
 
                 <!--condition-->
                 <div class="form-group">
                     <label for="condition">CONDITION</label>
-                    <input type="text" class="form-control" name="condition" id="condition" required placeholder="">
+                    <!--<input type="text" class="form-control" name="condition" id="condition" required placeholder="">-->
+                    <select class="form-control">
+                        <option value="Brand New">Brand New</option>
+                        <option value="Preloved">Preloved</option>
+                    </select>
                 </div>
 
                 <!--URL-->
                 <div class="form-group">
-                    <label for="url">URL</label>
+                    <label for="url">Product URL (Merchant's website):</label>
                     <input type="text" class="form-control" name="url" id="url" required placeholder="">
                 </div>
 

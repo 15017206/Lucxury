@@ -14,9 +14,9 @@ if (mysqli_num_rows($result) > 0) {
     $_SESSION["username"] = $row['username'];
     $_SESSION["user_type"] = $row['user_type'];
 
-    $msg = "<img src='https://eduzon.co/wp-content/uploads/2018/04/welcome-featured-image.jpg'>";
+    $msg = "<img src='./images/WebsiteStatusImages/loadingImage.jpg'>";
 } else {
-    $msg = "<img src='https://images.drivereasy.com/wp-content/uploads/2017/10/img_59e6d500051c8.png'>";
+    $msg = "<img src='./images/WebsiteStatusImages/wrongUserOrPass.jpg'>";
 }
 ?>
 <html>
