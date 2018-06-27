@@ -16,6 +16,7 @@ and open the template in the editor.
             $(document).ready(function () {
                 postalCode_blur();
                 checkExistingUsername();
+                populateCountries();
             });
             function postalCode_blur() {
                 var address1 = "";
@@ -46,10 +47,12 @@ and open the template in the editor.
                                     $('#username').attr('class', 'form-control is-valid');
                                     $('#username_output').attr('class', 'valid-feedback');
                                     $('#username_output').text(username + " is available.");
+                                    $(':input[type="submit"]').prop('disabled', false);
                                 } else {
                                     $('#username').attr('class', 'form-control is-invalid');
                                     $('#username_output').attr('class', 'invalid-feedback');
                                     $('#username_output').text(username + " has been taken. Please choose another.");
+                                    $(':input[type="submit"]').prop('disabled', true);
                                 }
 
                             },
@@ -87,6 +90,25 @@ and open the template in the editor.
                     error: function (obj, textStatus, errorThrown) {
                         console.log("Error " + textStatus + ": " + errorThrown);
 
+                    }
+                });
+            }
+
+            function populateCountries() {
+                $('#country_container').empty();
+                $.ajax({
+                    type: "GET",
+                    url: "Webservices/getAllCountries.php",
+                    cache: false,
+                    dataType: "JSON",
+                    success: function (response) {
+                        console.log(response.length);
+                        for (var i = 0; i < response.length; i++) {
+                            $('#country_container').append('<option value="' + response[i]['country'] + '">' + response[i]['country'] + '</option>');
+                        }
+                    },
+                    error: function (obj, textStatus, errorThrown) {
+                        console.log("Error " + textStatus + ": " + errorThrown);
                     }
                 });
             }
@@ -133,18 +155,18 @@ and open the template in the editor.
                 </div>
 
                 <!--nric-->
-<!--                <div class="form-group">
-                    <label for="nric">NRIC</label>
-                    <input type="text" class="form-control" name="nric" id="nric" required aria-describedby="nricHelp" placeholder="">
-                    <small id="nricHelp" class="form-text text-muted">e.g. T6349559I</small>
-                </div>-->
+                <!--                <div class="form-group">
+                                    <label for="nric">NRIC</label>
+                                    <input type="text" class="form-control" name="nric" id="nric" required aria-describedby="nricHelp" placeholder="">
+                                    <small id="nricHelp" class="form-text text-muted">e.g. T6349559I</small>
+                                </div>-->
 
                 <!--dob-->
-<!--                <div class="form-group">
-                    <label for="dob">DATE OF BIRTH</label>
-                    <input type="date" class="form-control" name="dob" id="dob" required aria-describedby="dobHelp" placeholder="">
-                    <small id="dobHelp" class="form-text text-muted"></small>
-                </div>-->
+                <!--                <div class="form-group">
+                                    <label for="dob">DATE OF BIRTH</label>
+                                    <input type="date" class="form-control" name="dob" id="dob" required aria-describedby="dobHelp" placeholder="">
+                                    <small id="dobHelp" class="form-text text-muted"></small>
+                                </div>-->
 
                 <!--gender-->
                 <div class="form-group">
@@ -163,24 +185,26 @@ and open the template in the editor.
                 </div>
 
                 <!--postal code-->
-<!--                <div class="form-group">
-                    <label for="postal_code">POSTAL CODE</label>
-                    <input type="number" class="form-control" name="postal_code" required id="postal_code" aria-describedby="postal_codeHelp" placeholder="">
-                    <small id="postal_codeHelp" class="form-text text-muted">Your Postal Code will be kept confidential</small>
-                </div>-->
+                <!--                <div class="form-group">
+                                    <label for="postal_code">POSTAL CODE</label>
+                                    <input type="number" class="form-control" name="postal_code" required id="postal_code" aria-describedby="postal_codeHelp" placeholder="">
+                                    <small id="postal_codeHelp" class="form-text text-muted">Your Postal Code will be kept confidential</small>
+                                </div>-->
 
                 <!--home address-->
-<!--                <div class="form-group">
-                    <label for="home_address">HOME ADDRESS</label>
-                    <input type="text" class="form-control" name="home_address" required id="home_address" aria-describedby="home_addressHelp" placeholder="">
-                    <small id="home_addressHelp" class="form-text text-muted">Your Home Address will be kept confidential</small>
-                </div>-->
+                <!--                <div class="form-group">
+                                    <label for="home_address">HOME ADDRESS</label>
+                                    <input type="text" class="form-control" name="home_address" required id="home_address" aria-describedby="home_addressHelp" placeholder="">
+                                    <small id="home_addressHelp" class="form-text text-muted">Your Home Address will be kept confidential</small>
+                                </div>-->
 
                 <!--country-->
                 <div class="form-group">
                     <label for="country">COUNTRY</label>
-                    <input type="text" class="form-control" name="country" required id="country" aria-describedby="countryHelp" placeholder="">
-                    <small id="countryHelp" class="form-text text-muted">e.g. Singapore</small>
+                    <!--<input type="text" class="form-control" name="country" required id="country" aria-describedby="countryHelp" placeholder="">-->
+                    <select id="country_container" class="form-control">
+                    </select>
+                    <small id="countryHelp" class="form-text text-muted">e.g. SG for Singapore</small>
                 </div>
 
                 <button type="submit" class="btn btn-primary" style="width:20%">SIGN UP</button>
