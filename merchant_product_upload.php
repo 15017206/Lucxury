@@ -54,7 +54,7 @@
                                     '<td>' + response[i]['itemstorage_condition'] + '</td>' +
                                     '<td>' + response[i]['merchant_name'] + '</td>' +
                                     "<td><a target='_blank' href='" + response[i]['itemstorage_more_info_url'] + "'>" + response[i]['itemstorage_more_info_url'] + "</td>" +
-                                    "<td id='preceding'></td>" +
+                                    "<td id='preceding"+ response[i]['item_storage_id'] +"'></td>" +
                                     "<td><a href='#'>Update</a><br/><a href='#' onclick='deleteItem(" + response[i]['item_storage_id'] + ")'>Delete</a></td>" +
                                     '</tr>' +
                                     '</tbody>' +
@@ -71,7 +71,7 @@
                                     for (var i = 0; i < response2.length; i++) {
                                         console.log("image response is: " + response2[i]['itemstorage_image_url']);
                                         image_url = response2[i]['itemstorage_image_url'];
-                                        $('#preceding').append("<td><a target='_blank' href='" + image_url + "'><img src='" + image_url + "'></td>");
+                                        $('#preceding'+response2[i]['item_storage_id']).append("<td><a target='_blank' href='" + image_url + "'><img src='" + image_url + "'></td>");
                                     }
                                 },
                                 error: function (obj, textStatus, errorThrown) {
