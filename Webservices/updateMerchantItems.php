@@ -8,8 +8,8 @@ $product_color = $_POST['color2'];
 $product_condition = $_POST['condition2'];
 $product_url = "http://" . $_POST['url2'];
 
-$query = "UPDATE `item_storage` SET `itemstorage_name` = '$product_name', `itemstorage_price_amount` = '$product_price', `itemstorage_color` = '$product_color', `itemstorage_price_amount` = '$product_price'," .
-        "`itemstorage_condition` = '$product_condition', `itemstorage_more_info_url` = '$product_url' WHERE `item_storage`.`item_storage_id` = '$product_id';";
+$query = "UPDATE `item_storage` SET `itemstorage_name` = '$product_name', `itemstorage_price_amount` = '$product_price', `itemstorage_color` = '$product_color'," .
+        "`itemstorage_condition` = '$product_condition',`itemstorage_brand`='$product_brand', `itemstorage_more_info_url` = '$product_url' WHERE `item_storage`.`item_storage_id` = '$product_id';";
 $result = mysqli_query($link, $query);
 
 if ($result) {

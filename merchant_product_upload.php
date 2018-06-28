@@ -13,6 +13,7 @@
 
         <?php
         session_start();
+        include 'merchant_navbar.php';
         include 'scripts/bootstrap_scripts/bootstrap_scripts.php';
         if (!isset($_SESSION['merchant_id'])) {
             header("Location: merchant_dashboard_login.php");
@@ -26,7 +27,7 @@
                 var user_type = '<?php echo $_SESSION["user_type"]; ?>';
                 populateBrands();
                 populateColors();
-
+                $('#table_product_inv').hide("fast");
                 console.log("merchant id: " + merchant_id);
                 console.log("merchant name: " + merchant_name);
                 console.log("user type: " + user_type);
@@ -85,6 +86,14 @@
                         $("#some_container").html("Sorry, No products here");
                     }
                 });
+
+                $('#btn_upload_hide').click(function () {
+                    $('#form_product_upload').toggle("fast");
+                });
+
+                $('#btn_inventory_hide').click(function () {
+                    $('#table_product_inv').toggle("fast");
+                });
             });
 
             function populateBrands() {
@@ -142,7 +151,7 @@
                         $('#brand_container2').val(response['itemstorage_brand']);
                         $('#color_container2').val(response['itemstorage_color']);
                         $('#condition2').val(response['itemstorage_condition']);
-                        $('#url2').val((response['itemstorage_more_info_url']+"").substring(7));
+                        $('#url2').val((response['itemstorage_more_info_url'] + "").substring(7));
                     },
                     error: function (obj, textStatus, errorThrown) {
                         console.log("Error " + textStatus + ": " + errorThrown);
@@ -173,34 +182,38 @@
     <body>
         <div class="">
             <br/>
-            <div id="some_container0">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Product name</th>
-                            <th scope="col">Currency</th>
-                            <th scope="col">Amount/$</th>
-                            <th scope="col">Brand</th>
-                            <th scope="col">Color</th>
-                            <th scope="col">Condition</th>
-                            <th scope="col">Merchant</th>
-                            <th scope="col">URL</th>
-                            <th scope="col">Image</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="some_container">
-                    </tbody>
-                </table>
-            </div>
+            <div class="container-fluid" id="some_container0">
+                <div class="alert alert-dark" role="alert">
+                    <button id="btn_inventory_hide" type="button" class="btn btn-primary btn-sm">Hide/View Product Inventory</button>
+                    <h1 align="center">PRODUCT INVENTORY</h1>
+                    <table class="table" id="table_product_inv">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Product name</th>
+                                <th scope="col">Currency</th>
+                                <th scope="col">Amount/$</th>
+                                <th scope="col">Brand</th>
+                                <th scope="col">Color</th>
+                                <th scope="col">Condition</th>
+                                <th scope="col">Merchant</th>
+                                <th scope="col">URL</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="some_container">
+                        </tbody>
+                    </table>
+                </div></div>
         </div>
 
-        <div class="container">
-            <div class="alert alert-primary" role="alert">
-                <form method="post" action="do_merchant_product_upload.php" enctype="multipart/form-data">
-                    <h1 align="center">Product Upload</h1>
+        <div class="container-fluid">
+            <div class="alert alert-dark" role="alert">
+                <button id="btn_upload_hide" type="button" class="btn btn-primary btn-sm">Hide/View Product Upload</button>
 
+                <h1 align="center">PRODUCT UPLOAD</h1>
+                <form id="form_product_upload" method="post" action="do_merchant_product_upload.php" enctype="multipart/form-data">
                     <!--merchant name-->
                     <div class="form-group">
                         <label for="merchant">MERCHANT NAME</label>
@@ -209,8 +222,8 @@
 
                     <!--merchant id-->
                     <div class="form-group">
-                        <label for="merchant">MERCHANT ID</label>
-                        <input readonly type="text" class="form-control" name="merchant_id" id="merchant_id" required placeholder="">
+                        <label hidden for="merchant">MERCHANT ID</label>
+                        <input hidden readonly type="text" class="form-control" name="merchant_id" id="merchant_id" required placeholder="">
                     </div>
 
                     <!--product name-->
@@ -268,7 +281,7 @@
                             </div>
                             <input type="text" class="form-control" name="url" id="url" required placeholder="">
                         </div>
-                        <small id="urlHelp" class="form-text text-muted">Just key in wwww.yourwebsitehere.com</small>
+                        <small id="urlHelp" class="form-text text-muted">Just key in www.yourwebsitehere.com/productlink</small>
                     </div>
 
                     <!--image_upload-->
@@ -369,7 +382,7 @@
                                         </div>
                                         <input type="text" class="form-control" name="url2" id="url2" required placeholder="">
                                     </div>
-                                    <small id="urlHelp" class="form-text text-muted">Just key in wwww.yourwebsitehere.com</small>
+                                    <small id="urlHelp" class="form-text text-muted">Just key in www.yourwebsitehere.com/productlink</small>
                                 </div>
 
                                 <!--image_upload-->

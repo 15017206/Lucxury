@@ -84,9 +84,12 @@ and open the template in the editor.
                 <br/>
                 <br/>
                 <div class="w3-row">
-                    <div class="w3-half w3-container">
+                    <div class="w3-half w3-container-fluid">
                         <input type="submit" class="w3-block w3-btn w3-white" style="opacity: 0.8;">
+                        
                     </div>
+                    <br/><br/>
+                    <a href="./login_page.php"><small>Return to user login page</small></a>
                 </div>
             </form>
         </div>
