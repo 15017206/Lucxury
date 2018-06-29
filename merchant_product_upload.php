@@ -12,9 +12,7 @@
         </style>
 
         <?php
-        session_start();
         include 'merchant_navbar.php';
-        include 'scripts/bootstrap_scripts/bootstrap_scripts.php';
         if (!isset($_SESSION['merchant_id'])) {
             header("Location: merchant_dashboard_login.php");
             die();
@@ -22,12 +20,13 @@
         ?>
         <script>
             $(document).ready(function () {
+                product_name = "";
                 var merchant_id = '<?php echo $_SESSION["merchant_id"]; ?>';
                 var merchant_name = '<?php echo $_SESSION["merchant_name"]; ?>';
                 var user_type = '<?php echo $_SESSION["user_type"]; ?>';
                 populateBrands();
                 populateColors();
-                $('#table_product_inv').hide("fast");
+//                $('#table_product_inv').hide("fast");
                 console.log("merchant id: " + merchant_id);
                 console.log("merchant name: " + merchant_name);
                 console.log("user type: " + user_type);
@@ -35,6 +34,19 @@
                 $("#merchant_name").val(merchant_name);
                 $("#merchant_id").val(merchant_id);
                 var image_url;
+
+                $('#productname').blur(function () {
+                    if ($(this).val() != "") {
+                        checkProductName($(this).val());
+                    }
+                });
+
+//                $('#productname2').blur(function () {
+//                    if ($(this).val() != "") {
+//                        checkProductName($(this).val());
+//                    }
+//                });
+
                 $.ajax({
                     type: "GET",
                     url: "Webservices/getMerchantsProductsByMerchantId.php",
@@ -56,7 +68,7 @@
                                     '<td>' + response[i]['merchant_name'] + '</td>' +
                                     "<td><a target='_blank' href='" + response[i]['itemstorage_more_info_url'] + "'>" + response[i]['itemstorage_more_info_url'] + "</td>" +
                                     "<td id='preceding" + response[i]['item_storage_id'] + "'></td>" +
-                                    "<td><a href='#' data-toggle='modal' data-target='#exampleModalCenter' onclick='populateFormViaUpdateBtn(" + response[i]['item_storage_id'] + ")'>Update</a><br/><a href='#' onclick='deleteItem(" + response[i]['item_storage_id'] + ")'>Delete</a></td>" +
+                                    "<td><a href='#' data-toggle='modal' data-target='#exampleModalCenter' onclick='populateFormViaUpdateBtn(" + response[i]['item_storage_id'] + ")'>Edit</a><br/><a href='#' onclick='deleteItem(" + response[i]['item_storage_id'] + ")'>Delete</a></td>" +
                                     '</tr>' +
                                     '</tbody>' +
                                     '</table>')
@@ -137,7 +149,7 @@
             }
 
             function populateFormViaUpdateBtn(item_storage_id) {
-                console.log("populateFormViaUpdateBtn: item_storage_id: " + item_storage_id);
+                
                 $.ajax({
                     type: "GET",
                     url: "Webservices/getItemFromProductId.php",
@@ -145,6 +157,7 @@
                     cache: false,
                     dataType: "JSON",
                     success: function (response) {
+                        product_name = response['itemstorage_name'];
                         $('#product_id2').val(response['item_storage_id']);
                         $('#productname2').val(response['itemstorage_name']);
                         $('#price2').val(response['itemstorage_price_amount']);
@@ -166,7 +179,7 @@
                         url: "Webservices/deleteProductById.php",
                         data: {item_storage_id: item_storage_id},
                         cache: false,
-                        dataType: "JSON",
+//                        dataType: "JSON",
                         success: function (response) {
                             console.log("result for deletion: " + response);
                             location.reload();
@@ -176,6 +189,39 @@
                         }
                     });
                 }
+            }
+
+            function checkProductName(product_name) {
+                $.ajax({
+                    type: "GET",
+                    url: "Webservices/getProductNameByName.php",
+                    data: {product_name: product_name},
+                    cache: false,
+//                    dataType: "JSON",
+                    success: function (response) {
+                        if (response == "product name found") {
+                            $('#productname').attr('class', 'form-control is-invalid');
+                            $('#productname2').attr('class', 'form-control is-invalid');
+                            $('#productname_output').attr('class', 'invalid-feedback');
+                            $('#productname_output2').attr('class', 'invalid-feedback');
+                            $('#productname_output').text(product_name + " has been assigned to another product. Please choose another.");
+                            $('#productname_output2').text(product_name + " has been assigned to another product. Please choose another.");
+                            $(':input[type="submit"]').prop('disabled', true);
+                        } else {
+                            $('#productname').attr('class', 'form-control is-valid');
+                            $('#productname2').attr('class', 'form-control is-valid');
+                            $('#productname_output').attr('class', 'valid-feedback');
+                            $('#productname_output2').attr('class', 'valid-feedback');
+                            $('#productname_output').text(product_name + " is available.");
+                            $('#productname_output2').text(product_name + " is available.");
+                            $(':input[type="submit"]').prop('disabled', false);
+                        }
+                    },
+                    error: function (obj, textStatus, errorThrown) {
+                        console.log("Error " + textStatus + ": " + errorThrown);
+                        $("#some_container").html("Sorry, No products here");
+                    }
+                });
             }
         </script>
     </head>
@@ -230,8 +276,8 @@
                     <div class="form-group">
                         <label for="productname">PRODUCT NAME</label>
                         <input type="text" class="form-control" name="productname" id="productname" aria-describedby="productnameHelp" required placeholder="">
-                        <small id="productnameHelp" class="form-text text-muted">Product Model</small>
-                        <small id="username_output" class=""></small>
+                        <small id="productnameHelp" class="form-text text-muted">Product Model - It cannot be changed later on</small>
+                        <small id="productname_output" class=""></small>
                     </div>
 
                     <!--price-->
@@ -267,8 +313,8 @@
                         <label for="condition">CONDITION</label>
                         <!--<input type="text" class="form-control" name="condition" id="condition" required placeholder="">-->
                         <select class="form-control" id="condition" name="condition">
-                            <option value="Brand New">Brand New</option>
-                            <option value="Preloved">Preloved</option>
+                            <option value="BRAND NEW">BRAND NEW</option>
+                            <option value="PRE LOVED">PRE LOVED</option>
                         </select>
                     </div>
 
@@ -330,9 +376,9 @@
                                 <!--product name-->
                                 <div class="form-group">
                                     <label for="productname">PRODUCT NAME</label>
-                                    <input type="text" class="form-control" name="productname2" id="productname2" aria-describedby="productnameHelp" required placeholder="">
+                                    <input type="text" class="form-control" name="productname2" readonly id="productname2" aria-describedby="productnameHelp" required placeholder="">
                                     <small id="productnameHelp" class="form-text text-muted">Product Model</small>
-                                    <small id="username_output" class=""></small>
+                                    <small id="productname_output2" class=""></small>
                                 </div>
 
                                 <!--price-->
@@ -368,8 +414,8 @@
                                     <label for="condition">CONDITION</label>
                                     <!--<input type="text" class="form-control" name="condition" id="condition" required placeholder="">-->
                                     <select class="form-control" id="condition2" name="condition2">
-                                        <option value="Brand New">Brand New</option>
-                                        <option value="Preloved">Preloved</option>
+                                        <option value="BRAND NEW">BRAND NEW</option>
+                                        <option value="PRE LOVED">PRE LOVED</option>
                                     </select>
                                 </div>
 

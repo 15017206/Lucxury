@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <?php
+session_start();
 include 'scripts/bootstrap_scripts/bootstrap_scripts.php';
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <script>
+        <script type="text/javascript">
             $(document).ready(function () {
                 $('#logout').click(function () {
                     if (confirm("Are you sure to logout?")) {
-<?php session_destroy(); ?>
-                        location.reload();
+                        window.location.replace("./Webservices/doLogout.php");
                     }
                 });
             });
+
+            function logout() {
+
+            }
 
         </script>
     </head>
