@@ -201,19 +201,19 @@
                     success: function (response) {
                         if (response == "product name found") {
                             $('#productname').attr('class', 'form-control is-invalid');
-                            $('#productname2').attr('class', 'form-control is-invalid');
+//                            $('#productname2').attr('class', 'form-control is-invalid');
                             $('#productname_output').attr('class', 'invalid-feedback');
-                            $('#productname_output2').attr('class', 'invalid-feedback');
+//                            $('#productname_output2').attr('class', 'invalid-feedback');
                             $('#productname_output').text(product_name + " has been assigned to another product. Please choose another.");
-                            $('#productname_output2').text(product_name + " has been assigned to another product. Please choose another.");
+//                            $('#productname_output2').text(product_name + " has been assigned to another product. Please choose another.");
                             $(':input[type="submit"]').prop('disabled', true);
                         } else {
                             $('#productname').attr('class', 'form-control is-valid');
                             $('#productname2').attr('class', 'form-control is-valid');
                             $('#productname_output').attr('class', 'valid-feedback');
-                            $('#productname_output2').attr('class', 'valid-feedback');
+//                            $('#productname_output2').attr('class', 'valid-feedback');
                             $('#productname_output').text(product_name + " is available.");
-                            $('#productname_output2').text(product_name + " is available.");
+//                            $('#productname_output2').text(product_name + " is available.");
                             $(':input[type="submit"]').prop('disabled', false);
                         }
                     },
