@@ -10,7 +10,7 @@ $color = $_POST["color"];
 $condition = $_POST["condition"];
 $merchant_id = $_POST["merchant_id"];
 $merchant_name = $_POST["merchant_name"];
-$url = "http://" . $_POST["url"];
+$url = $_POST["url"];
 //$image = $_POST["image"];
 //MAKE DIR if not exists
 if (!file_exists('merchant_images/' . $merchant_name)) {
@@ -27,7 +27,7 @@ $target_dir = 'merchant_images/' . $merchant_name . '/';
 
 if (in_array($file_ext, $allowed_file_types) && ($filesize < 20000000000)) {
     // Rename file
-    $newfilename = $productname . $file_ext;
+    $newfilename = "$productname" . $file_ext;
 
     if (file_exists($target_dir . $newfilename)) {
         // file already exists error
@@ -48,12 +48,12 @@ if (in_array($file_ext, $allowed_file_types) && ($filesize < 20000000000)) {
     unlink($_FILES["fileToUpload"]["tmp_name"]);
 }
 
-$query = "INSERT INTO `item_storage`(`merchant_id`, `itemstorage_name`, `itemstorage_price_currency`,`itemstorage_price_amount`, `itemstorage_brand`, `itemstorage_color`, `itemstorage_condition`, `itemstorage_category`, `itemstorage_more_info_url`) " .
-        "VALUES ('$merchant_id', '$productname', 'SGD', '$price', '$brand', '$color', '$condition', NULL, '$url')";
+$query = "INSERT INTO `item_storage`(`item_storage_id`, `merchant_id`, `itemstorage_name`, `itemstorage_price_currency`,`itemstorage_price_amount`, `itemstorage_brand`, `itemstorage_color`, `itemstorage_condition`, `itemstorage_category`, `itemstorage_more_info_url`) " .
+        "VALUES (NULL, '$merchant_id', '$productname', 'SGD', '$price', '$brand', '$color', '$condition', NULL, '$url')";
 
 $result = mysqli_query($link, $query);
 $item_storage_id = mysqli_insert_id($link);
-echo $item_storage_id;
+
 if ($result) {
     echo $response["result"] = "success";
 } else {
@@ -62,7 +62,7 @@ if ($result) {
 
 // Insert into image_storage table via the item_storage_id
 $query3 = "INSERT INTO `image_storage` (`item_image_id`, `item_storage_id`, `itemstorage_image_url`) VALUES (NULL, '$item_storage_id', '$target_dir$newfilename');";
-$resull3 = mysqli_query($link, $query3);
+$result3 = mysqli_query($link, $query3);
 //echo json_encode($response);
 mysqli_close($link);
 ?>
@@ -70,7 +70,7 @@ mysqli_close($link);
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="refresh" content="0.1; URL=./merchant_product_upload.php">
+        <meta http-equiv="refresh" content="10; URL=./merchant_product_upload.php">
         <meta name="keywords" content="automatic redirection">
         <title></title>
         <script>

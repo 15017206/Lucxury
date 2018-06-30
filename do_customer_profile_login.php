@@ -25,6 +25,13 @@ if (mysqli_num_rows($result) > 0) {
         <meta http-equiv="refresh" content="2; URL=home_page.php">
         <meta name="keywords" content="automatic redirection">
         <title></title>
+        <style>
+            img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto
+            }
+        </style>
     </head>
     <body>
         <?php

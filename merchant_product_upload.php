@@ -36,7 +36,13 @@
                 var image_url;
 
                 $('#productname').blur(function () {
-                    if ($(this).val() != "") {
+                    var xy = $(this).val();
+                    if (xy.indexOf("'") > -1 || xy.indexOf('"') > -1) {
+                        $('#productname').attr('class', 'form-control is-invalid');
+                        $('#productname_output').attr('class', 'invalid-feedback');
+                        $('#productname_output').text("No special characters allowed such as - \' or \"     ");
+                        $(':input[type="submit"]').prop('disabled', true);
+                    } else if ($(this).val() != "") {
                         checkProductName($(this).val());
                     }
                 });
@@ -54,47 +60,51 @@
                     cache: false,
                     dataType: "JSON",
                     success: function (response) {
-                        for (var i = 0; i < response.length; i++) {
-                            console.log("item storage id is: " + response[i]['item_storage_id']);
-                            $("#some_container").append(
-                                    '<tr>' +
-                                    '<th scope="row">' + response[i]['item_storage_id'] + '</th>' +
-                                    '<td>' + response[i]['itemstorage_name'] + '</td>' +
-                                    '<td>' + response[i]['itemstorage_price_currency'] + '</td>' +
-                                    '<td>' + response[i]['itemstorage_price_amount'] + '</td>' +
-                                    '<td>' + response[i]['itemstorage_brand'] + '</td>' +
-                                    '<td>' + response[i]['itemstorage_color'] + '</td>' +
-                                    '<td>' + response[i]['itemstorage_condition'] + '</td>' +
-                                    '<td>' + response[i]['merchant_name'] + '</td>' +
-                                    "<td><a target='_blank' href='" + response[i]['itemstorage_more_info_url'] + "'>" + response[i]['itemstorage_more_info_url'] + "</td>" +
-                                    "<td id='preceding" + response[i]['item_storage_id'] + "'></td>" +
-                                    "<td><a href='#' data-toggle='modal' data-target='#exampleModalCenter' onclick='populateFormViaUpdateBtn(" + response[i]['item_storage_id'] + ")'>Edit</a><br/><a href='#' onclick='deleteItem(" + response[i]['item_storage_id'] + ")'>Delete</a></td>" +
-                                    '</tr>' +
-                                    '</tbody>' +
-                                    '</table>')
+                        console.log("response getMProds: " + response);
+                        if (response != null) {
+                            for (var i = 0; i < response.length; i++) {
+                                console.log("item storage id is: " + response[i]['item_storage_id']);
+                                $("#some_container").append(
+                                        '<tr>' +
+                                        '<th scope="row">' + response[i]['item_storage_id'] + '</th>' +
+                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_name'] + '</td>' +
+                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_price_currency'] + '</td>' +
+                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_price_amount'] + '</td>' +
+                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_brand'] + '</td>' +
+                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_color'] + '</td>' +
+                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_condition'] + '</td>' +
+                                        '<td style ="word-break:break-all;">' + response[i]['merchant_name'] + '</td>' +
+                                        "<td style ='word-break:break-all;'><a target='_blank' href='" + response[i]['itemstorage_more_info_url'] + "'>" + response[i]['itemstorage_more_info_url'] + "</td>" +
+                                        "<td style ='word-break:break-all;' id='preceding" + response[i]['item_storage_id'] + "'></td>" +
+                                        "<td style ='word-break:break-all;'><a href='#' data-toggle='modal' data-target='#exampleModalCenter' onclick='populateFormViaUpdateBtn(" + response[i]['item_storage_id'] + ")'>Edit</a><br/><a href='#' onclick='deleteItem(" + response[i]['item_storage_id'] + ")'>Delete</a></td>" +
+                                        '</tr>' +
+                                        '</tbody>' +
+                                        '</table>')
 
-                            // Inner ajax for retrieving multiple images per item
-                            $.ajax({
-                                type: "GET",
-                                url: "Webservices/getImagesFromItemId.php",
-                                data: {item_storage_id: response[i]['item_storage_id']},
-                                cache: false,
-                                dataType: "JSON",
-                                success: function (response2) {
-                                    for (var i = 0; i < response2.length; i++) {
-                                        console.log("image response is: " + response2[i]['itemstorage_image_url']);
-                                        image_url = response2[i]['itemstorage_image_url'];
-                                        $('#preceding' + response2[i]['item_storage_id']).append("<td><a target='_blank' href='" + image_url + "'><img src='" + image_url + "'></td>");
+                                // Inner ajax for retrieving multiple images per item
+                                $.ajax({
+                                    type: "GET",
+                                    url: "Webservices/getImagesFromItemId.php",
+                                    data: {item_storage_id: response[i]['item_storage_id']},
+                                    cache: false,
+                                    dataType: "JSON",
+                                    success: function (response2) {
+                                        for (var i = 0; i < response2.length; i++) {
+                                            console.log("image response is: " + response2[i]['itemstorage_image_url']);
+                                            image_url = response2[i]['itemstorage_image_url'];
+                                            $('#preceding' + response2[i]['item_storage_id']).append("<td><a target='_blank' href='" + image_url + "'><img src='" + image_url + "'></td>");
+                                        }
+                                    },
+                                    error: function (obj, textStatus, errorThrown) {
+                                        console.log("Error " + textStatus + ": " + errorThrown);
                                     }
-                                },
-                                error: function (obj, textStatus, errorThrown) {
-                                    console.log("Error " + textStatus + ": " + errorThrown);
-                                }
-                            });
+                                });
+                            }
                         }
+
                     },
                     error: function (obj, textStatus, errorThrown) {
-                        console.log("Error " + textStatus + ": " + errorThrown);
+                        console.log("nth in prod inv/Error " + textStatus + ": " + errorThrown);
                         $("#some_container").html("Sorry, No products here");
                     }
                 });
@@ -149,7 +159,7 @@
             }
 
             function populateFormViaUpdateBtn(item_storage_id) {
-                
+
                 $.ajax({
                     type: "GET",
                     url: "Webservices/getItemFromProductId.php",
@@ -276,7 +286,7 @@
                     <div class="form-group">
                         <label for="productname">PRODUCT NAME</label>
                         <input type="text" class="form-control" name="productname" id="productname" aria-describedby="productnameHelp" required placeholder="">
-                        <small id="productnameHelp" class="form-text text-muted">Product Model - It cannot be changed later on</small>
+                        <small id="productnameHelp" class="form-text text-muted">Product Model - It cannot be changed later on. Alphanumeric only.</small>
                         <small id="productname_output" class=""></small>
                     </div>
 
@@ -322,12 +332,12 @@
                     <div class="form-group">
                         <label for="url">Product URL (Merchant's website):</label>
                         <div class="input-group mb-2">
-                            <div class="input-group-prepend">
+<!--                            <div class="input-group-prepend">
                                 <div class="input-group-text">http://</div>
-                            </div>
+                            </div>-->
                             <input type="text" class="form-control" name="url" id="url" required placeholder="">
                         </div>
-                        <small id="urlHelp" class="form-text text-muted">Just key in www.yourwebsitehere.com/productlink</small>
+                        <small id="urlHelp" class="form-text text-muted"></small>
                     </div>
 
                     <!--image_upload-->
@@ -423,12 +433,12 @@
                                 <div class="form-group">
                                     <label for="url">Product URL (Merchant's website):</label>
                                     <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
+<!--                                        <div class="input-group-prepend">
                                             <div class="input-group-text">http://</div>
-                                        </div>
+                                        </div>-->
                                         <input type="text" class="form-control" name="url2" id="url2" required placeholder="">
                                     </div>
-                                    <small id="urlHelp" class="form-text text-muted">Just key in www.yourwebsitehere.com/productlink</small>
+                                    <small id="urlHelp" class="form-text text-muted"></small>
                                 </div>
 
                                 <!--image_upload-->
