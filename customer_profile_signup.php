@@ -202,7 +202,7 @@ and open the template in the editor.
                 <div class="form-group">
                     <label for="country">COUNTRY</label>
                     <!--<input type="text" class="form-control" name="country" required id="country" aria-describedby="countryHelp" placeholder="">-->
-                    <select id="country_container" class="form-control">
+                    <select id="country_container" name="country" class="form-control">
                     </select>
                     <small id="countryHelp" class="form-text text-muted">e.g. SG for Singapore</small>
                 </div>

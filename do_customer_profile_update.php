@@ -7,14 +7,16 @@ $username = $_POST["username"];
 $password = $_POST["password"];
 $first_name = $_POST["first_name"];
 $last_name = $_POST["last_name"];
-$nric = $_POST["nric"];
-$dob = $_POST["dob"];
+//$nric = $_POST["nric"];
+//$dob = $_POST["dob"];
 $gender = $_POST["gender"];
-$postal_code = $_POST["postal_code"];
-$home_address = $_POST["home_address"];
+//$postal_code = $_POST["postal_code"];
+//$home_address = $_POST["home_address"];
 $country = $_POST["country"];
 
-$query = "UPDATE `user` SET `email`='$email',`username`='$username' ,`password`=SHA1('$password'), `first_name`='$first_name', `last_name`='$last_name', `nric`='$nric', `country`='$country', `dob`='$dob', `gender`='$gender', `address`='$home_address', `postal_code`='$postal_code' WHERE `user_id`='$user_id'";
+$query = "UPDATE `user` SET `email`='$email',`username`='$username' ,`password`=SHA1('$password'), `first_name`='$first_name',".
+        " `last_name`='$last_name', `country`='$country',  `gender`='$gender' ".
+        " WHERE `user_id`='$user_id'";
 
 $result = mysqli_query($link, $query);
 

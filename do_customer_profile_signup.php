@@ -30,7 +30,7 @@ mysqli_close($link);
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="refresh" content="3; URL=home_page.php">
+        <meta http-equiv="refresh" content="0.1; URL=home_page.php">
         <meta name="keywords" content="automatic redirection">
         <title></title>
         <?php include 'scripts/bootstrap_scripts/bootstrap_scripts.php'; ?>

@@ -68,6 +68,7 @@
                                         '<tr>' +
                                         '<th scope="row">' + response[i]['item_storage_id'] + '</th>' +
                                         '<td style ="word-break:break-all;">' + response[i]['itemstorage_name'] + '</td>' +
+                                        '<td style ="word-break:break-all;">' + 'category' + '</td>' +
                                         '<td style ="word-break:break-all;">' + response[i]['itemstorage_price_currency'] + '</td>' +
                                         '<td style ="word-break:break-all;">' + response[i]['itemstorage_price_amount'] + '</td>' +
                                         '<td style ="word-break:break-all;">' + response[i]['itemstorage_brand'] + '</td>' +
@@ -247,6 +248,7 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Product name</th>
+                                <th scope="col">Category</th>
                                 <th scope="col">Currency</th>
                                 <th scope="col">Amount/$</th>
                                 <th scope="col">Brand</th>
@@ -288,6 +290,13 @@
                         <input type="text" class="form-control" name="productname" id="productname" aria-describedby="productnameHelp" required placeholder="">
                         <small id="productnameHelp" class="form-text text-muted">Product Model - It cannot be changed later on. Alphanumeric only.</small>
                         <small id="productname_output" class=""></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productcategory">PRODUCT CATEGORY</label>
+                        <input type="text" class="form-control" name="productcategory" id="productcategory" aria-describedby="productcategoryHelp" required placeholder="">
+                        <small id="productcategoryHelp" class="form-text text-muted"></small>
+                        <small id="productcategory_output" class=""></small>
                     </div>
 
                     <!--price-->
@@ -332,9 +341,9 @@
                     <div class="form-group">
                         <label for="url">Product URL (Merchant's website):</label>
                         <div class="input-group mb-2">
-<!--                            <div class="input-group-prepend">
-                                <div class="input-group-text">http://</div>
-                            </div>-->
+                            <!--                            <div class="input-group-prepend">
+                                                            <div class="input-group-text">http://</div>
+                                                        </div>-->
                             <input type="text" class="form-control" name="url" id="url" required placeholder="">
                         </div>
                         <small id="urlHelp" class="form-text text-muted"></small>
@@ -391,6 +400,13 @@
                                     <small id="productname_output2" class=""></small>
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="productcategory2">PRODUCT CATEGORY</label>
+                                    <input type="text" class="form-control" name="productcategory2" id="productcategory2" aria-describedby="productcategory2Help" required placeholder="">
+                                    <small id="productcategory2Help" class="form-text text-muted"></small>
+                                    <small id="productcategory2_output" class=""></small>
+                                </div>
+
                                 <!--price-->
                                 <div class="form-group">
                                     <label for="price">PRICE</label>
@@ -433,9 +449,9 @@
                                 <div class="form-group">
                                     <label for="url">Product URL (Merchant's website):</label>
                                     <div class="input-group mb-2">
-<!--                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">http://</div>
-                                        </div>-->
+                                        <!--                                        <div class="input-group-prepend">
+                                                                                    <div class="input-group-text">http://</div>
+                                                                                </div>-->
                                         <input type="text" class="form-control" name="url2" id="url2" required placeholder="">
                                     </div>
                                     <small id="urlHelp" class="form-text text-muted"></small>
