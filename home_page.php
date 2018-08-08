@@ -95,7 +95,7 @@ and open the template in the editor.
         </div>
 
         <div class="w3-row w3-mobile">
-            <form action="product_page.php" method="post">
+            <form target="_blank" action="product_page.php" method="post">
                 <div class="w3-col" style="width:100%">
                     <input name="search_item" class="w3-input w3-border w3-leftbar w3-margin-top w3-margin-bottom" placeholder="SEARCH ITEM HERE" type="text">
                 </div>

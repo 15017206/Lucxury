@@ -11,6 +11,7 @@ $condition = $_POST["condition"];
 $merchant_id = $_POST["merchant_id"];
 $merchant_name = $_POST["merchant_name"];
 $url = $_POST["url"];
+$category = $_POST['category'];
 //$image = $_POST["image"];
 //MAKE DIR if not exists
 if (!file_exists('merchant_images/' . $merchant_name)) {
@@ -21,11 +22,11 @@ $filename = $_FILES["fileToUpload"]["name"];
 $file_basename = substr($filename, 0, strripos($filename, '.')); // get file extention
 $file_ext = substr($filename, strripos($filename, '.')); // get file name
 $filesize = $_FILES["fileToUpload"]["size"];
-$allowed_file_types = array('.png', '.jpg');
+$allowed_file_types = array('.png', '.PNG', '.jpg', '.JPG', '.jpeg', '.JPEG');
 
 $target_dir = 'merchant_images/' . $merchant_name . '/';
 
-if (in_array($file_ext, $allowed_file_types) && ($filesize < 20000000000)) {
+if (in_array($file_ext, $allowed_file_types) && ($filesize < 4194304)) {
     // Rename file
     $newfilename = "$productname" . $file_ext;
 
@@ -39,7 +40,7 @@ if (in_array($file_ext, $allowed_file_types) && ($filesize < 20000000000)) {
 } elseif (empty($file_basename)) {
     // file selection error
     echo "Please select a file to upload.";
-} elseif ($filesize > 20000000000) {
+} elseif ($filesize > 4194304) {
     // file size error
     echo "The file you are trying to upload is too large.";
 } else {
@@ -48,8 +49,8 @@ if (in_array($file_ext, $allowed_file_types) && ($filesize < 20000000000)) {
     unlink($_FILES["fileToUpload"]["tmp_name"]);
 }
 
-$query = "INSERT INTO `item_storage`(`item_storage_id`, `merchant_id`, `itemstorage_name`, `itemstorage_price_currency`,`itemstorage_price_amount`, `itemstorage_brand`, `itemstorage_color`, `itemstorage_condition`, `itemstorage_category`, `itemstorage_more_info_url`) " .
-        "VALUES (NULL, '$merchant_id', '$productname', 'SGD', '$price', '$brand', '$color', '$condition', NULL, '$url')";
+$query = "INSERT INTO `item_storage`(`item_storage_id`, `merchant_id`, `itemstorage_name`, `itemstorage_price_currency`,`itemstorage_price_amount`, `itemstorage_brand`, `itemstorage_color`, `itemstorage_condition`,`itemstorage_category`, `itemstorage_more_info_url`) " .
+        "VALUES (NULL, '$merchant_id', '$productname', 'SGD', '$price', '$brand', '$color', '$condition', '$category', '$url')";
 
 $result = mysqli_query($link, $query);
 $item_storage_id = mysqli_insert_id($link);

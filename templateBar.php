@@ -101,14 +101,68 @@ if (!isset($_SESSION['username'])) {
                     notification.onclick = function () {
                         window.open("http://localhost/Lucxury_000webhost/notification_page.php");
                     };
-
                 }
-
             }
 
-
-
         </script>
+
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '1447427822029147',
+                    cookie: true,
+                    xfbml: true,
+                    version: 'v3.0'
+                });
+
+                FB.AppEvents.logPageView();
+            };
+
+            function checkLoginState() {
+                FB.getLoginStatus(function (response) {
+                    statusChangeCallback(response);
+                    console.log(response);
+                });
+            }
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            function logout() {
+                FB.getLoginStatus(function (response) {
+                    console.log(response)
+                    if (response.status === 'connected') {
+                        window.location.href = "login_page.php";
+                        $.ajax({
+                            type: "GET",
+                            url: "./do_customer_profile_logout.php",
+                            cache: false,
+//                                      dataType: "JSON",
+                            success: function (response) {
+//                                console.log(response);
+//                                location.reload();
+                            },
+                            error: function (obj, textStatus, errorThrown) {
+                                console.log("Error " + textStatus + ": " + errorThrown);
+                            }
+                        });
+                    } else if (response.status === 'unknown') {
+                        window.location.href = "login_page.php";
+                    }
+
+                });
+
+            }
+        </script>
+
         <!--style-->
         <style>
             a {
@@ -167,37 +221,28 @@ if (!isset($_SESSION['username'])) {
             <a href="https://lucxury.com/wp/" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">NEWS/MEDIA</a>
             <a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">PROMOTION</a>
             <a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">HOW TO USE</a>
-            <!--<a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">SETTINGS</a>-->
             <a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">FAQ</a>
-            <!--<a href="index.php" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">LOGOUT</a>-->
             <?php
             if ($_SESSION["user_type"] == "merchant") {
                 echo '<a href="#" class="w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black">MERCHANT DASHBOARD</a>';
             }
             ?>
-            
-            <!--if $_SESSION user_id is not set, means its facebook login-->
+
             <br/>
             <?php
             if ($_SESSION["user_type"] == "admin") {
                 echo "<a href='admin_dashboard.php' id='logout' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>ADMIN DASHBOARD</a>";
-            } else if ($_SESSION["user_type"] == "merchant"){
+            } else if ($_SESSION["user_type"] == "merchant") {
                 echo "<a href='lucxury_webstore_main.php' id='logout' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>UPLOAD PRODUCTS</a>";
             }
-            
-            
-            
-            
-            
-            if (!isset($_SESSION['user_id'])) {
+
+            if (strcmp($_SESSION['user_type'], "Facebook user") == 0) {
                 echo "<br/>";
-//                echo "<div id='customer_logined_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Hello, " . $_SESSION['username'] . "</div>";
-                echo "You have logged in via facebook.";
-                echo "<a href='do_customer_profile_logout.php' id='logout' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Logout</a>";
+//                echo '<div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>';
+                echo "<a onclick='logout()' href='do_customer_profile_logout.php' id='logout' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Logout</a>";
             } else {
                 if (isset($_SESSION["username"])) {
                     echo "<br/>";
-//                    echo "<div id='customer_logined_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>Hello, " . $_SESSION['username'] . "</div>";
                     echo "<a href='customer_profile_update.php' id='customer_update_button' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>CUSTOMER EDIT PROFILE</a>";
                     echo "<a href='do_customer_profile_logout.php' id='logout' class='w3-bar-item w3-button w3-small w3-border-bottom w3-hover-black'>LOGOUT</a>";
                 } else {

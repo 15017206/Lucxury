@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+include 'scripts/bootstrap_scripts/bootstrap_scripts.php';
 include 'Webservices/dbconn.php';
 include 'templateBar.php';
 $user_id = $_SESSION['user_id'];
@@ -26,25 +27,22 @@ if (mysqli_num_rows($result) > 0) {
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <?php include 'scripts/bootstrap_scripts/bootstrap_scripts.php'; ?>
         <script>
             $(document).ready(function () {
                 postalCode_blur();
 
                 $("#email").val("<?php echo $email ?>");
                 $("#username").val("<?php echo $username ?>");
-                $("#password").val("<?php echo $password ?>");
+
                 $("#first_name").val("<?php echo $first_name ?>");
                 $("#last_name").val("<?php echo $last_name ?>");
-//                $("#nric").val("<?ph echo $nric ?>");
-//                $("#dob").val("<?ph echo $dob ?>");
+
                 if ("<?php echo $gender ?>" == "female") {
                     $("#exampleRadios2").prop("checked", true);
                 } else {
                     $("#exampleRadios1").prop("checked", true);
                 }
-//                $("#postal_code").val("<?ph echo $postal_code ?>");
-//                $("#home_address").val("<?ph echo $address ?>");
+
                 $("#country").val("<?php echo $country ?>");
             });
 

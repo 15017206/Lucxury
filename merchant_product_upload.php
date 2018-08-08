@@ -26,6 +26,7 @@
                 var user_type = '<?php echo $_SESSION["user_type"]; ?>';
                 populateBrands();
                 populateColors();
+                populateCategories();
 //                $('#table_product_inv').hide("fast");
                 console.log("merchant id: " + merchant_id);
                 console.log("merchant name: " + merchant_name);
@@ -60,15 +61,13 @@
                     cache: false,
                     dataType: "JSON",
                     success: function (response) {
-                        console.log("response getMProds: " + response);
                         if (response != null) {
                             for (var i = 0; i < response.length; i++) {
-                                console.log("item storage id is: " + response[i]['item_storage_id']);
                                 $("#some_container").append(
                                         '<tr>' +
                                         '<th scope="row">' + response[i]['item_storage_id'] + '</th>' +
                                         '<td style ="word-break:break-all;">' + response[i]['itemstorage_name'] + '</td>' +
-                                        '<td style ="word-break:break-all;">' + 'category' + '</td>' +
+                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_category'] + '</td>' +
                                         '<td style ="word-break:break-all;">' + response[i]['itemstorage_price_currency'] + '</td>' +
                                         '<td style ="word-break:break-all;">' + response[i]['itemstorage_price_amount'] + '</td>' +
                                         '<td style ="word-break:break-all;">' + response[i]['itemstorage_brand'] + '</td>' +
@@ -91,7 +90,6 @@
                                     dataType: "JSON",
                                     success: function (response2) {
                                         for (var i = 0; i < response2.length; i++) {
-                                            console.log("image response is: " + response2[i]['itemstorage_image_url']);
                                             image_url = response2[i]['itemstorage_image_url'];
                                             $('#preceding' + response2[i]['item_storage_id']).append("<td><a target='_blank' href='" + image_url + "'><img src='" + image_url + "'></td>");
                                         }
@@ -159,6 +157,26 @@
                 });
             }
 
+            function populateCategories() {
+                $('#productcategory_container').empty();
+                $.ajax({
+                    type: "GET",
+                    url: "Webservices/getAllCategories.php",
+                    cache: false,
+                    dataType: "JSON",
+                    success: function (response) {
+                        console.log("colors count: " + response.length);
+                        for (var i = 0; i < response.length; i++) {
+                            $('#productcategory_container').append('<option value="' + response[i]['category'] + '">' + response[i]['category'] + '</option>');
+                            $('#productcategory2_container').append('<option value="' + response[i]['category'] + '">' + response[i]['category'] + '</option>');
+                        }
+                    },
+                    error: function (obj, textStatus, errorThrown) {
+                        console.log("Error " + textStatus + ": " + errorThrown);
+                    }
+                });
+            }
+
             function populateFormViaUpdateBtn(item_storage_id) {
 
                 $.ajax({
@@ -171,6 +189,7 @@
                         product_name = response['itemstorage_name'];
                         $('#product_id2').val(response['item_storage_id']);
                         $('#productname2').val(response['itemstorage_name']);
+                        $('#productcategory2_container').val(response['itemstorage_category']);
                         $('#price2').val(response['itemstorage_price_amount']);
                         $('#brand_container2').val(response['itemstorage_brand']);
                         $('#color_container2').val(response['itemstorage_color']);
@@ -292,9 +311,11 @@
                         <small id="productname_output" class=""></small>
                     </div>
 
+                    <!--Category-->
                     <div class="form-group">
                         <label for="productcategory">PRODUCT CATEGORY</label>
-                        <input type="text" class="form-control" name="productcategory" id="productcategory" aria-describedby="productcategoryHelp" required placeholder="">
+                        <select id="productcategory_container" name="category" class="form-control">
+                        </select>
                         <small id="productcategoryHelp" class="form-text text-muted"></small>
                         <small id="productcategory_output" class=""></small>
                     </div>
@@ -354,7 +375,7 @@
                         <label for="image">IMAGE</label>
                         <input type="file" accept="image/*" class="form-control" name="fileToUpload" id="fileToUpload" required placeholder="">
                     </div>
-
+                    <small id="urlImageUpload" class="form-text text-muted">Max file size 4MB</small>
                     <button type="submit" class="btn btn-primary" style="width:20%">UPLOAD</button>
                     <br/>
                     <br/>
@@ -400,9 +421,11 @@
                                     <small id="productname_output2" class=""></small>
                                 </div>
 
+                                <!--Category-->
                                 <div class="form-group">
                                     <label for="productcategory2">PRODUCT CATEGORY</label>
-                                    <input type="text" class="form-control" name="productcategory2" id="productcategory2" aria-describedby="productcategory2Help" required placeholder="">
+                                    <select id="productcategory2_container" name="productcategory2" class="form-control">
+                                    </select>
                                     <small id="productcategory2Help" class="form-text text-muted"></small>
                                     <small id="productcategory2_output" class=""></small>
                                 </div>

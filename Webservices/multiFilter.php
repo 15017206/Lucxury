@@ -7,6 +7,9 @@ $additional_filters2 = "";
 $additional_filters3 = "";
 $additional_filters4 = "";
 
+//need items like shoes etc.
+//need gender $_GET from session too
+
 if (isset($_GET['priceType'])) {
     $priceType = $_GET['priceType'];
     $additional_filters_2 = "`itemfilter`.`itemfilter_price_amount` " . $priceType;

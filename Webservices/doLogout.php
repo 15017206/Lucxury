@@ -10,6 +10,7 @@ session_destroy();
         <meta name="keywords" content="automatic redirection">
         <title></title>
     </head>
+    
     <body>
         <?php
         // put your code here

@@ -6,10 +6,10 @@ and open the template in the editor.
 -->
 <?php
 session_start();
-if (isset($_SESSION['username'])) {
-    header('Location: home_page.php');
-    die();
-}
+//if (isset($_SESSION['username'])) {
+//    header('Location: home_page.php');
+//    die();
+//}
 ?>
 <html>
     <head>
@@ -27,78 +27,7 @@ if (isset($_SESSION['username'])) {
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
         <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
-
-
         <script>
-            // This is called with the results from from FB.getLoginStatus().
-            function statusChangeCallback(response) {
-                console.log('statusChangeCallback');
-                // The response object is returned with a status field that lets the
-                // app know the current login status of the person.
-                // Full docs on the response object can be found in the documentation
-                // for FB.getLoginStatus().
-                if (response.status === 'connected') {
-                    // Logged into your app and Facebook.
-                    console.log(response);
-                    FB.api(
-                            '/me',
-                            'GET',
-                            {"fields": "id,name,about,address,age_range,birthday,email"},
-                            function (response3) {
-                                // Insert your code here
-                                var x = response3.name + "";
-                                addToDatabaseFromFBLogin(response3.id, response3.email, response3.name);
-
-                            }
-                    );
-                } else {
-                    // The person is not logged into your app or we are unable to tell.
-                    console.log("Please login");
-                }
-            }
-
-            function addToDatabaseFromFBLogin(userID, userEmail, userName) {
-                alert(userID + userEmail + userName);
-                $.ajax({
-                    type: "POST",
-                    url: "Webservices/addIDEmailNameToDB.php",
-                    data: {user_fb_id: userID, user_email: userEmail, username: userName},
-                    cache: false,
-                    dataType: "JSON",
-                    success: function (response) {
-                        alert(response.result);
-
-                        $.ajax({
-                            type: "GET",
-                            url: "fbDoAddSession.php",
-                            data: {username: userName},
-                            cache: false,
-//                                    dataType: "JSON",
-                            success: function (response2) {
-                                alert(response2);
-                                location.reload();
-
-                            },
-                            error: function (obj, textStatus, errorThrown) {
-                                console.log("Error " + textStatus + ": " + errorThrown);
-                            }
-                        });
-                    },
-                    error: function (obj, textStatus, errorThrown) {
-                        console.log("Error " + textStatus + ":: " + errorThrown);
-                    }
-                });
-            }
-
-            // This function is called when someone finishes with the Login
-            // Button.  See the onlogin handler attached to it in the sample
-            // code below.
-            function checkLoginState() {
-                FB.getLoginStatus(function (response) {
-                    statusChangeCallback(response);
-                });
-            }
-
             window.fbAsyncInit = function () {
                 FB.init({
                     appId: '1447427822029147',
@@ -107,24 +36,46 @@ if (isset($_SESSION['username'])) {
                     version: 'v3.0'
                 });
 
-                // Now that we've initialized the JavaScript SDK, we call 
-                // FB.getLoginStatus().  This function gets the state of the
-                // person visiting this page and can return one of three states to
-                // the callback you provide.  They can be:
-                //
-                // 1. Logged into your app ('connected')
-                // 2. Logged into Facebook, but not your app ('not_authorized')
-                // 3. Not logged into Facebook and can't tell if they are logged into
-                //    your app or not.
-                //
-                // These three cases are handled in the callback function.
+                FB.AppEvents.logPageView();
 
                 FB.getLoginStatus(function (response) {
-                    statusChangeCallback(response);
+                    console.log(response)
+                    if (response.status === 'connected') {
+                        FB.api(
+                                '/me',
+                                'GET',
+                                {"fields": "id,name, email"},
+                                function (response) {
+                                    // Insert your code here
+
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "Webservices/doLoginViaFB.php",
+                                        data: {username: response.name, user_id: response.id, email: response.email},
+                                        cache: false,
+//                                      dataType: "JSON",
+                                        success: function (response) {
+                                            console.log(response);
+                                            
+//                                            location.reload();
+                                        },
+                                        error: function (obj, textStatus, errorThrown) {
+                                            console.log("Error " + textStatus + ": " + errorThrown);
+                                        }
+                                    });
+                                }
+                        );
+                    }
                 });
             };
 
-            // Load the SDK asynchronously
+            function checkLoginState() {
+                FB.getLoginStatus(function (response) {
+                    statusChangeCallback(response);
+                    console.log(response);
+                });
+            }
+
             (function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) {
@@ -135,6 +86,10 @@ if (isset($_SESSION['username'])) {
                 js.src = "https://connect.facebook.net/en_US/sdk.js";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
+
+            function logined_already() {
+//                window.location.href = "home_page.php";
+            }
         </script>
 
         <style>
@@ -145,6 +100,18 @@ if (isset($_SESSION['username'])) {
         </style>
     </head>
     <body>
+
+        <div id="fb-root"></div>
+        <script>(function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.0&appId=1447427822029147&autoLogAppEvents=1';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
         <img id="banner1" src="images/login_page_images/loginbanner.jpg" alt="" style=""/>
         <div class="w3-container w3-center ">
             <br/>
@@ -162,21 +129,22 @@ if (isset($_SESSION['username'])) {
                     <div class="w3-row">
                         <button type="submit" class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:60%">LOGIN</button>
                     </div>
+                    <br/>
 
+                    <div onlogin="logined_already()" class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+
+                    <br/>
                     <br/>
                     <div class="w3-row">
                         <a role="button" href="customer_profile_signup.php" class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:60%">SIGN UP</a>
                     </div>
-                    </br>
+
                     <div class="w3-row">
                         <!--<a role="button" href="" class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:60%">LOGIN WITH FACEBOOK</a>-->
                         <!--<div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>-->
 
-                        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-                        </fb:login-button>
-
                     </div>
-                    </br>
+                    <br/>
                     <div class="w3-row">
                         <a id="subscribe1" href="login_page_subscribe.php" onclick="showMailing()"  class="w3-bar w3-center w3-btn w3-blue w3-small" style="opacity: 0.8; width:60%">SUBSCRIBE NOW!</a>
                     </div>
