@@ -89,6 +89,7 @@
                                     cache: false,
                                     dataType: "JSON",
                                     success: function (response2) {
+                                        console.log(response2);
                                         for (var i = 0; i < response2.length; i++) {
                                             image_url = response2[i]['itemstorage_image_url'];
                                             $('#preceding' + response2[i]['item_storage_id']).append("<td><a target='_blank' href='" + image_url + "'><img src='" + image_url + "'></td>");

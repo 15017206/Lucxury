@@ -1,8 +1,6 @@
 <?php
 include 'dbconn.php';
 
-
-
 if (isset($_GET['priceType'])) {
 
     $priceType = $_GET['priceType'];
