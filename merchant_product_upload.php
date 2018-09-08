@@ -54,60 +54,60 @@
 //                    }
 //                });
 
-                $.ajax({
-                    type: "GET",
-                    url: "Webservices/getMerchantsProductsByMerchantId.php",
-                    data: {merchant_id: merchant_id},
-                    cache: false,
-                    dataType: "JSON",
-                    success: function (response) {
-                        if (response != null) {
-                            for (var i = 0; i < response.length; i++) {
-                                $("#some_container").append(
-                                        '<tr>' +
-                                        '<th scope="row">' + response[i]['item_storage_id'] + '</th>' +
-                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_name'] + '</td>' +
-                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_category'] + '</td>' +
-                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_price_currency'] + '</td>' +
-                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_price_amount'] + '</td>' +
-                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_brand'] + '</td>' +
-                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_color'] + '</td>' +
-                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_condition'] + '</td>' +
-                                        '<td style ="word-break:break-all;">' + response[i]['merchant_name'] + '</td>' +
-                                        "<td style ='word-break:break-all;'><a target='_blank' href='" + response[i]['itemstorage_more_info_url'] + "'>" + response[i]['itemstorage_more_info_url'] + "</td>" +
-                                        "<td style ='word-break:break-all;' id='preceding" + response[i]['item_storage_id'] + "'></td>" +
-                                        "<td style ='word-break:break-all;'><a href='#' data-toggle='modal' data-target='#exampleModalCenter' onclick='populateFormViaUpdateBtn(" + response[i]['item_storage_id'] + ")'>Edit</a><br/><a href='#' onclick='deleteItem(" + response[i]['item_storage_id'] + ")'>Delete</a></td>" +
-                                        '</tr>' +
-                                        '</tbody>' +
-                                        '</table>')
-
-                                // Inner ajax for retrieving multiple images per item
-                                $.ajax({
-                                    type: "GET",
-                                    url: "Webservices/getImagesFromItemId.php",
-                                    data: {item_storage_id: response[i]['item_storage_id']},
-                                    cache: false,
-                                    dataType: "JSON",
-                                    success: function (response2) {
-                                        console.log(response2);
-                                        for (var i = 0; i < response2.length; i++) {
-                                            image_url = response2[i]['itemstorage_image_url'];
-                                            $('#preceding' + response2[i]['item_storage_id']).append("<td><a target='_blank' href='" + image_url + "'><img src='" + image_url + "'></td>");
-                                        }
-                                    },
-                                    error: function (obj, textStatus, errorThrown) {
-                                        console.log("Error " + textStatus + ": " + errorThrown);
-                                    }
-                                });
-                            }
-                        }
-
-                    },
-                    error: function (obj, textStatus, errorThrown) {
-                        console.log("nth in prod inv/Error " + textStatus + ": " + errorThrown);
-                        $("#some_container").html("Sorry, No products here");
-                    }
-                });
+//                $.ajax({
+//                    type: "GET",
+//                    url: "Webservices/getMerchantsProductsByMerchantId.php",
+//                    data: {merchant_id: merchant_id},
+//                    cache: false,
+//                    dataType: "JSON",
+//                    success: function (response) {
+//                        if (response != null) {
+//                            for (var i = 0; i < response.length; i++) {
+//                                $("#some_container").append(
+//                                        '<tr>' +
+//                                        '<th scope="row">' + response[i]['item_storage_id'] + '</th>' +
+//                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_name'] + '</td>' +
+//                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_category'] + '</td>' +
+//                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_price_currency'] + '</td>' +
+//                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_price_amount'] + '</td>' +
+//                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_brand'] + '</td>' +
+//                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_color'] + '</td>' +
+//                                        '<td style ="word-break:break-all;">' + response[i]['itemstorage_condition'] + '</td>' +
+//                                        '<td style ="word-break:break-all;">' + response[i]['merchant_name'] + '</td>' +
+//                                        "<td style ='word-break:break-all;'><a target='_blank' href='" + response[i]['itemstorage_more_info_url'] + "'>" + response[i]['itemstorage_more_info_url'] + "</td>" +
+//                                        "<td style ='word-break:break-all;' id='preceding" + response[i]['item_storage_id'] + "'></td>" +
+//                                        "<td style ='word-break:break-all;'><a href='#' data-toggle='modal' data-target='#exampleModalCenter' onclick='populateFormViaUpdateBtn(" + response[i]['item_storage_id'] + ")'>Edit</a><br/><a href='#' onclick='deleteItem(" + response[i]['item_storage_id'] + ")'>Delete</a></td>" +
+//                                        '</tr>' +
+//                                        '</tbody>' +
+//                                        '</table>')
+//
+//                                // Inner ajax for retrieving multiple images per item
+//                                $.ajax({
+//                                    type: "GET",
+//                                    url: "Webservices/getImagesFromItemId.php",
+//                                    data: {item_storage_id: response[i]['item_storage_id']},
+//                                    cache: false,
+//                                    dataType: "JSON",
+//                                    success: function (response2) {
+//                                        console.log(response2);
+//                                        for (var i = 0; i < response2.length; i++) {
+//                                            image_url = response2[i]['itemstorage_image_url'];
+//                                            $('#preceding' + response2[i]['item_storage_id']).append("<td><a target='_blank' href='" + image_url + "'><img src='" + image_url + "'></td>");
+//                                        }
+//                                    },
+//                                    error: function (obj, textStatus, errorThrown) {
+//                                        console.log("Error " + textStatus + ": " + errorThrown);
+//                                    }
+//                                });
+//                            }
+//                        }
+//
+//                    },
+//                    error: function (obj, textStatus, errorThrown) {
+//                        console.log("nth in prod inv/Error " + textStatus + ": " + errorThrown);
+//                        $("#some_container").html("Sorry, No products here");
+//                    }
+//                });
 
                 $('#btn_upload_hide').click(function () {
                     $('#form_product_upload').toggle("fast");
